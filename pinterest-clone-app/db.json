@@ -1,0 +1,24 @@
+{
+    "users" : [
+        {
+            "id" : "0",
+            "name" : "Amal Biju",
+            "email" : "amalbiju99@gamil.com",
+            "password" : "secret",
+            "age" : "24",
+            "saved_pins" : ""
+        }
+    ],
+    "pins" : [
+        {
+            "id" : "0",
+            "title" : "",
+            "description" : "",
+            "author" : "",
+            "url" : "",
+            "img_url" : "",
+            "category" : "",
+            "tags" : ""
+        }
+    ]
+}
