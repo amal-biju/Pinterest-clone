@@ -12,7 +12,10 @@ class DataContextProvider extends Component {
              isAuth : false,
              isLoading : false,
              error : false,
-             users : []
+             users : [],
+             savedPins : [],
+             isSaved : false,
+             savedIds : []
         }
     }
     componentDidMount() {
@@ -28,6 +31,14 @@ class DataContextProvider extends Component {
             })
         })
     }
+    addSavedPins = id => {
+        const  { pins,savedPins,savedIds } = this.state;
+
+        this.setState({
+            isSaved : true,
+            savedIds : [...savedIds,id]
+        })
+    }
     
     
     getPins = () => {
@@ -35,9 +46,9 @@ class DataContextProvider extends Component {
     }
 
     render() {
-        const { pins } = this.state
-        const { getPins } = this
-        const value = { pins,getPins }
+        const { pins,isSaved,savedIds } = this.state
+        const { getPins,addSavedPins } = this
+        const value = { pins,getPins,addSavedPins,isSaved,savedIds }
         return (
             <DataContext.Provider value={value}>
                 {this.props.children}

@@ -5,6 +5,7 @@ import { Login } from '../Login';
 import { Signup } from '../Signup';
 import { Notifications } from '../Notifications';
 import { Inbox } from '../Inbox';
+import Profile from '../Profile';
 
 const NavbarWrapper = styled.div`
     padding : 8px;
