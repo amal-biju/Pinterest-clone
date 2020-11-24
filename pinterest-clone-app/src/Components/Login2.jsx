@@ -5,11 +5,12 @@ import { Modal } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components'
 
-const SignupBtn = styled.div`
+const LoginBtn = styled.div`
     padding : 7px 10px;
     margin-left : 10px;
     border-radius : 30px;
-    background-color : #eee;
+    color : white;
+    background-color : red;
     &:hover {
         cursor : pointer;
     }
@@ -37,7 +38,7 @@ const Form = styled.form`
     
 `;
 
-export class Signup extends Component {
+export class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -63,10 +64,10 @@ export class Signup extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const { email, password } = this.state
-        const { handleLogin} = this.context
-        console.log(email,password)
-        handleLogin(email, password);
-        if(1){
+        const { handleLogin,isAuth} = this.context
+        console.log(isAuth)
+        var a=handleLogin(email, password);
+        if(a){
         setTimeout(() => {
                 this.setState({
                     visible:false
@@ -89,8 +90,8 @@ export class Signup extends Component {
         const { isAuth, isLoading, token, error } = this.context
         return (
             <div>
-                <SignupBtn
-                onClick={this.showModal}>Sign up</SignupBtn>
+                <LoginBtn
+                onClick={this.showModal}>Log in</LoginBtn>
             <Modal
                 title={null}
                 visible={visible}
@@ -135,4 +136,4 @@ export class Signup extends Component {
     }
 }
 
-Signup.contextType = DataContext
+Login.contextType = DataContext

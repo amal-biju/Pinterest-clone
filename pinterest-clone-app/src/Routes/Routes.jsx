@@ -11,7 +11,7 @@ const NavPositioner = styled.div`
 
 const Routes = () => {
     return (
-        <div >
+        <div>
            <NavPositioner><Route path="/" render={()=><Navbar />} /></NavPositioner>
            <Switch>
             <Route path="/" exact render={()=><Home />} />

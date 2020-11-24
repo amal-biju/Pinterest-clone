@@ -3,13 +3,11 @@ import styled from 'styled-components'
 import { DataContext } from '../Context/DataContextProvider'
 
 const Wrapper = styled.div`
-box-sizing: border-box;
-width: 80%;
-height: 1000px;
-display: flex;
-flex-flow: column wrap;
-justify-content: flex-start;
-align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1200px;
+    display: flex;
+    flex-flow: column wrap;
 `;
 
 const ImageCard = styled.div`
@@ -35,17 +33,16 @@ class Home extends Component {
         }
     }
     componentDidMount() {
-        const { getPins,pins } = this.context;
-        this.setState({
-            pins : pins
-        })
+        const { getPins,getUsers} = this.context;
+        getPins();
+        getUsers();
     }
     
     
     render() {
-        const { pins } = this.state
+        const { pins } = this.context
         return (
-            <Wrapper style={{boxSizing:"border-box"}}>
+            <Wrapper>
                 {
                     pins.map( pin => (
                         <ImageCard key={pin.id}>

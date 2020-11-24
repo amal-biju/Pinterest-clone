@@ -1,18 +1,22 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import 'antd/dist/antd.css';
-import { Modal, Button } from 'antd';
-import { Drawer } from 'antd';
+import { Login } from '../Login2';
+import { Signup } from '../Signup';
+import { Notifications } from '../Notifications';
+import { Inbox } from '../Inbox';
 
 const NavbarWrapper = styled.div`
-    padding : 10px;
+    padding : 8px;
     font-weight : 500;
     font-size : 16px;
     display: flex;
     align-items : center;
     background-color : white;
     & a {
+        font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
         text-decoration : none;
         color : black;
     }
@@ -20,14 +24,21 @@ const NavbarWrapper = styled.div`
         background-color : #eee;
         border-radius : 35px;
     }
+    & *{
+        font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        font-weight : 600;
+
+    }
 `;
 const Search = styled.input`
-    padding : 11px;
+    padding : 7px 10px 7px 5px;
     border : none;
-    border-radius : 35px;
-    border : 4px solid #ced4da;
-    background-color : #ced4da;
-    width : 55%;
+    border-radius : 0px 25px 25px 0px;
+    border : 4px solid #eee;
+    background-color : #eee;
+    width : 50%;
     &::placeholder {
         font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -35,13 +46,12 @@ const Search = styled.input`
         font-size : 16px;
     }
     &:focus {
-        border : 4px solid #c6def1;
         outline : none;
 
     }
 `;
 const Logo = styled.img`
-    height : 70px;
+    height : 55px;
     padding : 10px;
     border-radius : 50%;
     border : 2px solid white;
@@ -49,102 +59,45 @@ const Logo = styled.img`
         background-color : #eee;
     }
 `;
-const Icon = styled.img`
-    padding : 10px;
-    height : 30px;
-    opacity : 0.6;
-    margin-left : 5px;
-    border-radius : 50%;
-    &:hover{
-        background-color : #eee;
-        cursor : pointer;
-    }
+
+const SearchIcon =styled.img`
+    height : 15px;
+    background-color : #eee;
+    opacity : 0.5;
+    `;
+const SearchIconWrapper = styled.div`
+    padding : 10px 0px 10px 15px;
+    border : 1px solid #eee;
+    background-color : #eee;
+    border-radius : 25px 0px 0px 25px;
 `;
 
 const links = [
     {
-        to: "/",
-        title: "Home"
+        to : "/",
+        title : "Home"
     },
     {
-        to: "/today",
-        title: "Today"
+        to : "/today",
+        title : "Today"
     },
     {
-        to: "/following",
-        title: "Following"
+        to : "/following",
+        title : "Following"
     }
 ]
 
 
 const Navbar = () => {
 
-    const [visible1, setVisible1] = React.useState(false);
-    const [visible2, setVisible2] = React.useState(false);
-    const [visible3, setVisible3] = React.useState(false);
-    const [confirmLoading, setConfirmLoading] = React.useState(false);
-    const [modalText, setModalText] = React.useState('Content of the modal');
-
-    const showModal1 = () => {
-        setVisible1(true);
-    };
-
-
-    const handleCancel1 = () => {
-        console.log('Clicked cancel button');
-        setVisible1(false);
-    };
-    const showModal2 = () => {
-        setVisible2(true);
-    };
-
-
-    const handleCancel2 = () => {
-        console.log('Clicked cancel button');
-        setVisible2(false);
-    };
-
-    const handleLogin1 = () => {
-        var a = 1
-        if (a == 1) {
-            setModalText('The modal will be closed after two seconds');
-            setConfirmLoading(true);
-            setTimeout(() => {
-                setVisible1(false);
-                setConfirmLoading(false);
-            }, 2000);
-        }
-    };
-
-    const handleLogin2 = () => {
-        var a = 1
-        if (a == 1) {
-            setModalText('The modal will be closed after two seconds');
-            setConfirmLoading(true);
-            setTimeout(() => {
-                setVisible2(false);
-                setConfirmLoading(false);
-            }, 2000);
-        }
-    };
-
-    const showDrawer = () => {
-        setVisible3(true);
-    };
-
-    const onClose = () => {
-        setVisible3(false);
-    };
-
-
     return (
         <NavbarWrapper>
-            <Logo src="https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c52e.png" alt="Logo" width="70px" />
+            <Logo src="./icon.png" alt="Logo"/>
             {
-                links.map(link => (
+                links.map( link => (
                     <NavLink
-                        style={{ margin: 3, padding: 15 }}
-                        activeStyle={{ backgroundColor: 'black', color: "white", borderRadius: "35px" }}
+                        style={{margin:3,padding:"12px 15px"}}
+                        activeStyle={{backgroundColor:'black',color:"white",borderRadius:"35px"}}
                         key={link.to}
                         to={link.to}
                     >
@@ -152,66 +105,16 @@ const Navbar = () => {
                     </NavLink>
                 ))
             }
-            <Search type="text" name="" id="" placeholder="Search" />
-            <div onClick={showDrawer}>
-                <Icon src="https://www.flaticon.com/svg/static/icons/svg/633/633816.svg" alt="Notifications" />
-            </div>
-            <Drawer
-                title="Basic Drawer"
-                placement="right"
-                closable={false}
-                onClose={onClose}
-                visible={visible3}
-            >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-            </Drawer>
-            <div  onClick={showDrawer}>
-                <Icon src="https://www.flaticon.com/svg/static/icons/svg/684/684849.svg" alt="Chat" />
-            </div>
-            <Drawer
-                title="Basic Drawer"
-                placement="right"
-                closable={false}
-                onClose={onClose}
-                visible={visible3}
-            >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-            </Drawer>
-
-            <div
-                style={{ margin: 3, padding: 15 }}
-                onClick={showModal1}>SignIn</div>
-            <Modal
-                title="Title"
-                visible={visible1}
-                footer={null}
-                onCancel={handleCancel1}
-                confirmLoading={confirmLoading}
-            >
-                <p>{modalText}</p>
-                <button onClick={handleLogin1}>Login</button>
-            </Modal>
-            <div
-                style={{ margin: 3, padding: 15 }}
-                onClick={showModal2}>SignUp</div>
-            <Modal
-                title="2nd"
-                visible={visible2}
-                footer={null}
-                onCancel={handleCancel2}
-                confirmLoading={confirmLoading}
-            >
-                <p>{modalText}</p>
-                <button onClick={handleLogin2}>Login</button>
-            </Modal>
-
+            <SearchIconWrapper>
+                <SearchIcon src="https://www.flaticon.com/svg/static/icons/svg/598/598494.svg" alt="Icon" />
+            </SearchIconWrapper>
+            <Search type="text" placeholder="Search"/>
+            <Notifications />
+            <Inbox />
+            <Login />
+            <Signup />
         </NavbarWrapper>
-
     )
 }
 
-export { Navbar }
+export  {Navbar}
