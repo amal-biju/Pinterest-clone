@@ -77,7 +77,7 @@ const links = [
 const Navbar = () => {
     return (
         <NavbarWrapper>
-            <Logo src="https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c52e.png" alt="Logo"/>
+            <Logo src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-svg-vector.svg" alt="Logo"/>
             {
                 links.map( link => (
                     <NavLink
