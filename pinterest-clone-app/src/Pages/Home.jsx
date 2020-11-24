@@ -3,8 +3,11 @@ import styled from 'styled-components'
 import { DataContext } from '../Context/DataContextProvider'
 
 const Wrapper = styled.div`
-    display : flex;
-    flex-wrap : wrap;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1200px;
+    display: flex;
+    flex-flow: column wrap;
 `;
 
 const ImageCard = styled.div`

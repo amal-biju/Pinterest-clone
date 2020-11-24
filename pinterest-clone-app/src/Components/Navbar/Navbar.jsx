@@ -1,15 +1,22 @@
 import React from 'react'
-import { Link,NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import { Login } from '../Login';
+import { Signup } from '../Signup';
+import { Notifications } from '../Notifications';
+import { Inbox } from '../Inbox';
 
 const NavbarWrapper = styled.div`
-    padding : 10px;
+    padding : 8px;
     font-weight : 500;
     font-size : 16px;
     display: flex;
     align-items : center;
     background-color : white;
     & a {
+        font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
         text-decoration : none;
         color : black;
     }
@@ -17,14 +24,21 @@ const NavbarWrapper = styled.div`
         background-color : #eee;
         border-radius : 35px;
     }
+    & *{
+        font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+        font-weight : 600;
+
+    }
 `;
 const Search = styled.input`
-    padding : 11px;
+    padding : 7px 10px 7px 5px;
     border : none;
-    border-radius : 35px;
-    border : 4px solid #ced4da;
-    background-color : #ced4da;
-    width : 55%;
+    border-radius : 0px 25px 25px 0px;
+    border : 4px solid #eee;
+    background-color : #eee;
+    width : 50%;
     &::placeholder {
         font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -32,13 +46,12 @@ const Search = styled.input`
         font-size : 16px;
     }
     &:focus {
-        border : 4px solid #c6def1;
         outline : none;
 
     }
 `;
 const Logo = styled.img`
-    height : 30px;
+    height : 55px;
     padding : 10px;
     border-radius : 50%;
     border : 2px solid white;
@@ -46,16 +59,17 @@ const Logo = styled.img`
         background-color : #eee;
     }
 `;
-const Icon = styled.img`
-    padding : 10px;
-    height : 30px;
-    opacity : 0.6;
-    margin-left : 5px;
-    border-radius : 50%;
-    &:hover{
-        background-color : #eee;
-        cursor : pointer;
-    }
+
+const SearchIcon =styled.img`
+    height : 15px;
+    background-color : #eee;
+    opacity : 0.5;
+    `;
+const SearchIconWrapper = styled.div`
+    padding : 10px 0px 10px 15px;
+    border : 1px solid #eee;
+    background-color : #eee;
+    border-radius : 25px 0px 0px 25px;
 `;
 
 const links = [
@@ -75,13 +89,14 @@ const links = [
 
 
 const Navbar = () => {
+
     return (
         <NavbarWrapper>
             <Logo src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-svg-vector.svg" alt="Logo"/>
             {
                 links.map( link => (
                     <NavLink
-                        style={{margin:3,padding:15}}
+                        style={{margin:3,padding:"12px 15px"}}
                         activeStyle={{backgroundColor:'black',color:"white",borderRadius:"35px"}}
                         key={link.to}
                         to={link.to}
@@ -90,9 +105,14 @@ const Navbar = () => {
                     </NavLink>
                 ))
             }
-            <Search type="text" name="" id="" placeholder="Search"/>
-            <div><Icon src="https://www.flaticon.com/svg/static/icons/svg/633/633816.svg" alt="Notifications"/></div>
-            <div><Icon src="https://www.flaticon.com/svg/static/icons/svg/684/684849.svg" alt="Chat"/></div>
+            <SearchIconWrapper>
+                <SearchIcon src="https://www.flaticon.com/svg/static/icons/svg/598/598494.svg" alt="Icon" />
+            </SearchIconWrapper>
+            <Search type="text" placeholder="Search"/>
+            <Notifications />
+            <Inbox />
+            <Login />
+            <Signup />
         </NavbarWrapper>
     )
 }
