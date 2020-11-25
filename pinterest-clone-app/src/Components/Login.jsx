@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { Redirect } from "react-router-dom"
 import { DataContext } from "../Context/DataContextProvider"
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
@@ -113,15 +112,19 @@ export class Login extends Component {
                                 name="email"
                                 placeholder="email"
                                 onChange={this.handleChange} />
-                            <br /><div>{error==101? "User does not Exist":""}</div><br />
+                            <br />
+                            <div>{error==101? "User does not Exist":""}</div>
+                            <br />
                             <input
                                 type="text"
                                 value={password}
                                 name="password"
                                 placeholder="password"
                                 onChange={this.handleChange} />
-                                <br /><div>{error==202? "Incorrect Password":""}</div><br />
-                                Forgot Your password?
+                                <br />
+                                <div>{error==202? "Incorrect Password":""}</div>
+                                <br />
+                                <div>Forgot Your password?</div> 
                                 <br/>
                             <input style={{backgroundColor:"red",fontWeight:"600", color:"white",marginTop:"30px"}} type="submit" value="Log In" /><br/>
                             <div>Or</div>

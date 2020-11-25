@@ -40,7 +40,7 @@ class DashBoard extends Component {
         console.log(curruser)
         return (
             <div style={{ width: "100%", textAlign: "center", marginTop: "60px" }}>
-                <img src="https://i.imgur.com/D5wcicT.jpg" alt="" srcset="" width="120px" height="120px" style={{ borderRadius: "60px" }} />
+                <img src="https://i.imgur.com/D5wcicT.jpg" alt="photo"width="120px" height="120px" style={{ borderRadius: "60px" }} />
                 <div>{curruser.name}</div>
                 <div>{curruser.email}</div>
                 <div>{curruser.following.length}following•{curruser.followers.length}followers</div>
@@ -50,9 +50,10 @@ class DashBoard extends Component {
                            <div>All Pins</div>
                         </div>
                 {
-                    curruser.saved_pins.map( pin => (<div>
-                        <div key={pin.title} style={{width:"230px", height:"150px", border:"1px solid black", borderRadius:"20px"}}>LOVE</div><br/>
-                           <div>{pin.title}</div>
+                    curruser.saved_pins.map( pin => (
+                        <div  key={pin.id} >
+                            <div style={{width:"230px", height:"150px", border:"1px solid black", borderRadius:"20px"}}>LOVE</div><br/>
+                            <div>{pin.title}</div>
                         </div>
                     ))
                 }</div>
