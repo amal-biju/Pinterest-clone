@@ -1,11 +1,11 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { Login } from '../Login';
 import { Signup } from '../Signup';
 import { Notifications } from '../Notifications';
 import { Inbox } from '../Inbox';
-import Profile from '../Profile';
+import { Login } from '../Login';
+import { DataContext } from '../../Context/DataContextProvider';
 
 const NavbarWrapper = styled.div`
     padding : 8px;
@@ -72,6 +72,17 @@ const SearchIconWrapper = styled.div`
     background-color : #eee;
     border-radius : 25px 0px 0px 25px;
 `;
+const ProfileLink = styled.div`
+    text-align : center;
+    background-color : #eee;
+    padding : 6px 12px;
+    border-radius : 50%;
+    margin-left : 5px;
+    &:hover {
+        cursor : pointer;
+        background-color : #ddd;
+    }
+`;
 
 const links = [
     {
@@ -89,33 +100,64 @@ const links = [
 ]
 
 
-const Navbar = () => {
-
-    return (
-        <NavbarWrapper>
-            <Logo src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-svg-vector.svg" alt="Logo"/>
-            {
-                links.map( link => (
-                    <NavLink
-                        style={{margin:3,padding:"12px 15px"}}
-                        activeStyle={{backgroundColor:'black',color:"white",borderRadius:"35px"}}
-                        key={link.to}
-                        to={link.to}
-                    >
-                        {link.title}
-                    </NavLink>
-                ))
-            }
-            <SearchIconWrapper>
-                <SearchIcon src="https://www.flaticon.com/svg/static/icons/svg/598/598494.svg" alt="Icon" />
-            </SearchIconWrapper>
-            <Search type="text" placeholder="Search"/>
-            <Notifications />
-            <Inbox />
-            <Login />
-            <Signup />
-        </NavbarWrapper>
-    )
+class Navbar extends Component {
+    handleClick = () => {
+        const { history } = this.props; 
+        history.replace('/dashboard')
+    }
+    
+    render() {
+        const { isAuth } = this.context;
+        return (
+            <NavbarWrapper>
+                <Logo src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-svg-vector.svg" alt="Logo"/>
+                {
+                    links.map( link => (
+                        <NavLink
+                            style={{margin:3,padding:"12px 15px"}}
+                            activeStyle={{backgroundColor:'black',color:"white",borderRadius:"35px"}}
+                            key={link.to}
+                            to={link.to}
+                        >
+                            {link.title}
+                        </NavLink>
+                    ))
+                }
+                
+                <SearchIconWrapper>
+                    <SearchIcon src="https://www.flaticon.com/svg/static/icons/svg/598/598494.svg" alt="Icon" />
+                </SearchIconWrapper>
+                {
+                    isAuth ? (
+                        <Search type="text" placeholder="Search" style={{width:"60%"}}/>
+                    ) : (
+                        <Search type="text" placeholder="Search"/>
+                    )
+                }
+                <Notifications />
+                <Inbox />
+                {
+                    isAuth ? (
+                        // <ProfileLink onClick={this.handleClick}>A</ProfileLink>
+                        <Link to="/dashboard" style={{
+                            margin:10,
+                            padding:10
+                        }}>CD</Link>
+                    ) : (
+                        <>
+                            <Login />
+                            <Signup />
+                        </>
+                    )
+                }
+                
+            </NavbarWrapper>
+        )
+    }
 }
 
-export  {Navbar}
+Navbar.contextType = DataContext
+
+export { Navbar }
+
+

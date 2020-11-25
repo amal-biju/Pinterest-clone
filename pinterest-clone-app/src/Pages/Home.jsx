@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { DataContext } from '../Context/DataContextProvider'
+import styles from "./masonry.module.css"
 
-const Wrapper = styled.div`
-    box-sizing: border-box;
-    width: 100%;
-    height: 1200px;
-    display: flex;
-    flex-flow: column wrap;
-`;
 
 const ImageCard = styled.div`
     width : 18%;
@@ -82,23 +76,22 @@ class Home extends Component {
         }
     }
     componentDidMount() {
-        const { getPins,pins } = this.context;
-        this.setState({
-            pins : pins
-        })
+        const { getPins,getUsers} = this.context;
+        getPins();
+        getUsers();
     }
     
     
     render() {
-        const { pins } = this.state
-        const { isSaved,addSavedPins,savedIds } = this.context
-        console.log(addSavedPins);
-        console.log(savedIds);
-        return (
-            <Wrapper>
+        const { pins } = this.context
+        // const { pins } = this.state
+        const { isSaved,addSavedPins,savedIds,isAuth } = this.context
+    
+        return isAuth ? (
+            <div className={styles.container}>
                 {
                     pins.map( pin => (
-                        <ImageCard key={pin.id}>
+                        <ImageCard key={pin.id} className={styles.box}>
                             <OnHover>
                                 <OnHoverContents>
                                     
@@ -125,7 +118,9 @@ class Home extends Component {
                         </ImageCard>
                     ))
                 }
-            </Wrapper>
+            </div>
+        ) : (
+            <img src="https://i.ibb.co/wSYQkRK/screencapture-in-pinterest-2020-11-25-10-18-56.png" alt="image" height="max-height" width="max-width"/>
         )
     }
 }

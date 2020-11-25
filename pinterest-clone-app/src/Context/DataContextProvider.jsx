@@ -6,49 +6,261 @@ const DataContext = React.createContext()
 class DataContextProvider extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
-             pins : [],
-             isAuth : false,
-             isLoading : false,
-             error : false,
-             users : [],
-             savedPins : [],
-             isSaved : false,
-             savedIds : []
+            pins: [],
+            users: [],
+            isAuth: false,
+            isLoading: false,
+            error: false,
+            savedPins : [],
+            isSaved : false,
+            savedIds : [],
+            today : [],
+            curruser: {
+                "id": "1",
+                "name": "Charleson Davis",
+                "email": "charlz1717@gmail.com",
+                "password": "secret",
+                "following": ["amalbiju99@gamil.com", "eve.holt@reqres.in", "lovely@gmail.com"],
+                "followers": ["amalbiju99@gamil.com", "eve.holt@reqres.in", "lovely@gmail.com"],
+                "saved":[
+                    {
+                        "title":"cooking"
+                    },
+                    {
+                        "title":"baking"
+                    },
+                    {
+                        "title":"gardening"
+                    },
+                    {
+                        "title":"camping"
+                    }
+                ],
+                "age": "28",
+                "saved_pins": [
+                    {
+                        "id": "0",
+                        "title": "",
+                        "description": "",
+                        "author": "Mellany",
+                        "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                        "img_url": "https://i.imgur.com/2K7tPsF.jpeg",
+                        "category": "",
+                        "tags": ""
+                    },
+                    {
+                        "id": "1",
+                        "title": "",
+                        "description": "",
+                        "author": "Mellany",
+                        "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                        "img_url": "https://i.pinimg.com/236x/6a/56/8a/6a568a265598194c607e62e6e7adf0b7.jpg",
+                        "category": "",
+                        "tags": ""
+                    },
+                    {
+                        "id": "2",
+                        "title": "",
+                        "description": "",
+                        "author": "Mellany",
+                        "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                        "img_url": "https://i.pinimg.com/236x/1d/79/05/1d7905fd963b35eb91f43400559e7e43.jpg",
+                        "category": "",
+                        "tags": ""
+                    },
+                    {
+                        "id": "3",
+                        "title": "",
+                        "description": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                        "author": "Mellany",
+                        "url": "",
+                        "img_url": "https://i.pinimg.com/236x/d1/fe/cc/d1fecc8a6a91f2ff686e5d0e7f5b07ec.jpg",
+                        "category": "",
+                        "tags": ""
+                    }
+                ]
+            }
         }
+        this.getUsers = this.getUsers.bind(this)
+        this.getPins = this.getPins.bind(this)
+        this.addSavedPins = this.addSavedPins.bind(this)
+        this.handleLogin = this.handleLogin.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
+        this.handleSignup = this.handleSignup.bind(this)
+        this.getTodayById = this.getTodayById.bind(this)
     }
+
     componentDidMount() {
-        axios.get("http://localhost:3004/pins")
-        .then(res => {
+        axios.get("http://localhost:3004/today")
+        .then ((res)=>{
             this.setState({
-                pins : res.data
+                today : res.data
             })
         })
-        .catch( err => {
+        .catch((err)=>{
             this.setState({
                 error : true
             })
         })
     }
-    addSavedPins = id => {
-        const  { pins,savedPins,savedIds } = this.state;
+    
+
+    getPins(){
+        console.log("getting pins")
+        axios.get("http://localhost:3004/pins")
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    pins: res.data
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    error: true
+                })
+            })
+    }
+    getUsers(){
+        console.log("getting Users")
+        axios.get("http://localhost:3004/users")
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    users: res.data
+                })
+                console.log(res)
+            })
+            .catch(err => {
+                this.setState({
+                    error: true
+                })
+            })
+    }
+
+    getTodayById(id){
+        console.log(id);
+        const { today } = this.state
+        console.log(today)
+
+        const item = today.find( data => data.id == id )
+        console.log(item);
+        return item
+    }
+
+    addSavedPins(id){
+        const  { savedIds } = this.state;
 
         this.setState({
             isSaved : true,
             savedIds : [...savedIds,id]
         })
     }
-    
-    
-    getPins = () => {
-        return this.state.pins;
+
+    handleLogout(){
+        this.setState({
+            isAuth:false
+        })
+    }
+
+    handleLogin(email, password) {
+        console.log("logging in")
+        this.setState({
+            isAuth: false
+        })
+
+        const { users } = this.state
+
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email === email) {
+                if (password === users[i].password) {
+                    console.log(users[i])
+                    this.setState({
+                        isAuth: true,
+                        curruser: users[i],
+                        error: false
+                    })
+                    return true
+                }
+                else {
+                    this.setState({
+                        error: 202
+                    })
+                    break
+                }
+
+
+            }
+            else this.setState({
+                error: 101
+            })
+        }
+
+    }
+    handleSignup(email, password, age) {
+        console.log("Registering")
+
+        const { users } = this.state
+
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email === email) {
+                this.setState({
+                    error: 303
+                })
+                return false
+
+            }
+
+        }
+
+        axios({
+            url: "http://localhost:3004/users",
+            method: "post",
+            data: {
+                email: email,
+                password: password,
+                age: age
+            }
+        }).then(res => {
+            this.setState({
+                isAuth: true,
+                error: false
+            })
+        }).catch(err => {
+            this.setState({
+                error: 304,
+                isLoading: false
+            })
+        })
+
+        return true
+
+
+
     }
 
     render() {
-        const { pins,isSaved,savedIds } = this.state
-        const { getPins,addSavedPins } = this
-        const value = { pins,getPins,addSavedPins,isSaved,savedIds }
+        const { pins, isAuth, users,isSaved,savedIds,error,curruser,today } = this.state
+        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById} = this
+        const value = { 
+            pins, 
+            getPins, 
+            isAuth, 
+            pins, 
+            handleLogin, 
+            users ,
+            getUsers,
+            isSaved,
+            savedIds,
+            addSavedPins,
+            handleLogout,
+            handleSignup,
+            error,
+            curruser,
+            today,
+            getTodayById
+        }
         return (
             <DataContext.Provider value={value}>
                 {this.props.children}
@@ -57,4 +269,4 @@ class DataContextProvider extends Component {
     }
 }
 
-export  {DataContext,DataContextProvider}
+export { DataContext, DataContextProvider }
