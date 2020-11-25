@@ -5,7 +5,7 @@ import { Home } from '../Pages/Home'
 import styled from 'styled-components'
 import { Today } from '../Pages/Today'
 import { TodayItem } from '../Pages/TodayItem'
-import { TodayItems } from '../Pages/TodayItem'
+
 
 const NavPositioner = styled.div`
     position: sticky;

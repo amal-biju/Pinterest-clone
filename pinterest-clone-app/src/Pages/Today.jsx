@@ -10,7 +10,7 @@ box-sizing: border-box;
     display: flex;
     flex-flow: row wrap;
 `;
-const TodayItem = styled.div`
+const TodayItems = styled.div`
 width: 45%;
 height: 300px;
 margin: 10px;
@@ -32,25 +32,27 @@ class Today extends React.Component{
             today : []
         }
     }
-    componentDidCatch(){
+    componentDidMount(){
         const {today} = this.context
         this.setState({
-            today : [...today]
+            today : today
         })
     }
     render(){
-        const {today}=this.context
+        const {today}=this.state
         
         return(
-            <div style ={{textAlign:"center"}}><h1>Today {new Date().toLocaleDateString('en-GB')}</h1>
+            <div style ={{textAlign:"center"}}>
+                <h1>Today {new Date().toLocaleDateString('en-GB')}</h1>
+                <h1>Stay Inspired</h1>
                 <TodayWrap >
                 
                     {
                     today.map((item)=>(
                         
-                        <TodayItem key ={item.id} style = {{backgroundImage:`url(${item.today_img})`,backgroundSize :"cover"}} >
+                        <TodayItems key ={item.id} style = {{backgroundImage:`url(${item.today_img})`,backgroundSize :"cover"}} >
                            <Link to = {`/today/${item.id}`}>{ <h1 style = {{position :"relative"}}>{item.today_title}</h1>}</Link>
-                        </TodayItem>
+                        </TodayItems>
                     ))
                 }
                 </TodayWrap>
