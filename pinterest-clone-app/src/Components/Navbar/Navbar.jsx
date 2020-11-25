@@ -8,6 +8,7 @@ import { Inbox } from '../Inbox';
 
 const NavbarWrapper = styled.div`
     padding : 8px;
+    width:100%;
     font-weight : 500;
     font-size : 16px;
     display: flex;

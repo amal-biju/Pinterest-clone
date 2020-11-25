@@ -1,28 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { DataContext } from '../Context/DataContextProvider'
-
-const Wrapper = styled.div`
-    box-sizing: border-box;
-    width: 100% !important;
-    height: auto !important;
-    display: flex;
-    flex-flow: column wrap;
-`;
-
-const ImageCard = styled.div`
-    width : 18%;
-    margin : 10px;
-`;
-    
-const Image = styled.img`
-    width: 100%;
-    background-size : cover;
-    border-radius  :20px;
-    &:hover {
-        cursor : zoom-in;
-    }
-`;
+import styles from "./masonry.module.css"
 
 class Home extends Component {
     constructor(props) {
@@ -42,15 +21,15 @@ class Home extends Component {
     render() {
         const { pins } = this.context
         return (
-            <Wrapper className="main">
+            <div className={styles.container}>
                 {
                     pins.map( pin => (
-                        <ImageCard key={pin.id}>
-                            <Image src={pin.img_url}/>
-                        </ImageCard>
+                        <div className={styles.box}>
+                            <img src={pin.img_url}/>
+                        </div>
                     ))
                 }
-            </Wrapper>
+            </div>
         )
     }
 }

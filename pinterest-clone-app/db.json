@@ -1,172 +1,323 @@
 {
-    "users" : [
+    "users": [
         {
-            "id" : "0",
-            "name" : "Amal Biju",
-            "email" : "amalbiju99@gamil.com",
-            "password" : "secret",
-            "age" : "24",
-            "saved_pins" : []
+            "id": "0",
+            "name": "Amal Biju",
+            "email": "amalbiju99@gamil.com",
+            "password": "secret",
+            "age": "24",
+            "saved_pins": []
         },
         {
-            "id" : "1",
-            "name" : "Charleson Davis",
-            "email" : "charlz1717@gamil.com",
-            "password" : "secret",
-            "age" : "28",
-            "saved_pins" : []
+            "id": "1",
+            "name": "Charleson Davis",
+            "email": "charlz1717@gmail.com",
+            "password": "secret",
+            "following":["amalbiju99@gamil.com","eve.holt@reqres.in","lovely@gmail.com"],
+            "followers":["amalbiju99@gamil.com","eve.holt@reqres.in","lovely@gmail.com"],
+            "age": "28",
+            "saved_pins": [
+                {
+                    "id": "0",
+                    "title": "",
+                    "description": "",
+                    "author": "Mellany",
+                    "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                    "img_url": "https://i.imgur.com/2K7tPsF.jpeg",
+                    "category": "",
+                    "tags": ""
+                },
+                {
+                    "id": "1",
+                    "title": "",
+                    "description": "",
+                    "author": "Mellany",
+                    "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                    "img_url": "https://i.pinimg.com/236x/6a/56/8a/6a568a265598194c607e62e6e7adf0b7.jpg",
+                    "category": "",
+                    "tags": ""
+                },
+                {
+                    "id": "2",
+                    "title": "",
+                    "description": "",
+                    "author": "Mellany",
+                    "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                    "img_url": "https://i.pinimg.com/236x/1d/79/05/1d7905fd963b35eb91f43400559e7e43.jpg",
+                    "category": "",
+                    "tags": ""
+                },
+                {
+                    "id": "3",
+                    "title": "",
+                    "description": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+                    "author": "Mellany",
+                    "url": "",
+                    "img_url": "https://i.pinimg.com/236x/d1/fe/cc/d1fecc8a6a91f2ff686e5d0e7f5b07ec.jpg",
+                    "category": "",
+                    "tags": ""
+                }
+            ]
+        },
+        {
+            "email": "eve.holt@reqres.in",
+            "password": "cityslicka",
+            "age": "21",
+            "id": "8xlLjHB"
+        },
+        {
+            "email": "lovely@gmail.com",
+            "password": "pistol",
+            "age": "99",
+            "id": "VNmbt0j"
         }
     ],
-    "pins" : [
+    "pins": [
         {
-            "id" : "0",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
-            "img_url" : "https://i.pinimg.com/236x/72/ac/45/72ac455e393eed9b22d4f0dd0fb19323.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "0",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+            "img_url": "https://i.imgur.com/2K7tPsF.jpeg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "1",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
-            "img_url" : "https://i.pinimg.com/236x/6a/56/8a/6a568a265598194c607e62e6e7adf0b7.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "1",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+            "img_url": "https://i.pinimg.com/236x/6a/56/8a/6a568a265598194c607e62e6e7adf0b7.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "2",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
-            "img_url" : "https://i.pinimg.com/236x/1d/79/05/1d7905fd963b35eb91f43400559e7e43.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "2",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+            "img_url": "https://i.pinimg.com/236x/1d/79/05/1d7905fd963b35eb91f43400559e7e43.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "3",
-            "title" : "",
-            "description" : "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
-            "author" : "Mellany",
-            "url" : "",
-            "img_url" : "https://i.pinimg.com/236x/d1/fe/cc/d1fecc8a6a91f2ff686e5d0e7f5b07ec.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "3",
+            "title": "",
+            "description": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+            "author": "Mellany",
+            "url": "",
+            "img_url": "https://i.pinimg.com/236x/d1/fe/cc/d1fecc8a6a91f2ff686e5d0e7f5b07ec.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "4",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
-            "img_url" : "https://i.pinimg.com/236x/c1/aa/0b/c1aa0b199a5e41dfbdfa8b610f2389f4.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "4",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "http://www.danibuenoblog.com.br/2019/11/looks-masculinos-t-shirt.html?m=1",
+            "img_url": "https://i.pinimg.com/236x/c1/aa/0b/c1aa0b199a5e41dfbdfa8b610f2389f4.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "5",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/4d/78/49/4d784959f9927da83841fe1e2122e7a6.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "5",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/4d/78/49/4d784959f9927da83841fe1e2122e7a6.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "6",
-            "title" : "",
-            "description" : "https://www.patrycklebrun.com/books-hommes",
-            "author" : "Mellany",
-            "url" : "",
-            "img_url" : "https://i.pinimg.com/236x/61/d8/12/61d8129d16c4ffe05f7f63c2349cf55a.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "6",
+            "title": "",
+            "description": "https://www.patrycklebrun.com/books-hommes",
+            "author": "Mellany",
+            "url": "",
+            "img_url": "https://i.pinimg.com/236x/61/d8/12/61d8129d16c4ffe05f7f63c2349cf55a.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "7",
-            "title" : "",
-            "description" : "https://www.patrycklebrun.com/books-hommes",
-            "author" : "Mellany",
-            "url" : "",
-            "img_url" : "https://i.pinimg.com/236x/f6/13/d6/f613d6861f47a0f118a6a1b9b5433748.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "7",
+            "title": "",
+            "description": "https://www.patrycklebrun.com/books-hommes",
+            "author": "Mellany",
+            "url": "",
+            "img_url": "https://i.pinimg.com/236x/f6/13/d6/f613d6861f47a0f118a6a1b9b5433748.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "8",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/6a/56/8a/6a568a265598194c607e62e6e7adf0b7.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "8",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/6a/56/8a/6a568a265598194c607e62e6e7adf0b7.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "9",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/54/ab/09/54ab0970e2d8ee0b0ccace3cfed1c1b6.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "9",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/54/ab/09/54ab0970e2d8ee0b0ccace3cfed1c1b6.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "10",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/61/d8/12/61d8129d16c4ffe05f7f63c2349cf55a.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "10",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/61/d8/12/61d8129d16c4ffe05f7f63c2349cf55a.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "11",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/3b/1e/15/3b1e15d0d9aac421baa47076f7bb07b9.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "11",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/3b/1e/15/3b1e15d0d9aac421baa47076f7bb07b9.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "12",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/fd/b1/b7/fdb1b7f1b0a1e1ff1081ab85f47bafc2.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "12",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/fd/b1/b7/fdb1b7f1b0a1e1ff1081ab85f47bafc2.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "13",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/c1/aa/0b/c1aa0b199a5e41dfbdfa8b610f2389f4.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "13",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/c1/aa/0b/c1aa0b199a5e41dfbdfa8b610f2389f4.jpg",
+            "category": "",
+            "tags": ""
         },
         {
-            "id" : "14",
-            "title" : "",
-            "description" : "",
-            "author" : "Mellany",
-            "url" : "https://www.patrycklebrun.com/books-hommes",
-            "img_url" : "https://i.pinimg.com/236x/f6/13/d6/f613d6861f47a0f118a6a1b9b5433748.jpg",
-            "category" : "",
-            "tags" : ""
+            "id": "14",
+            "title": "",
+            "description": "",
+            "author": "Mellany",
+            "url": "https://www.patrycklebrun.com/books-hommes",
+            "img_url": "https://i.pinimg.com/236x/f6/13/d6/f613d6861f47a0f118a6a1b9b5433748.jpg",
+            "category": "",
+            "tags": ""
+        },
+        {
+            "id": "15",
+            "title": "",
+            "description": "",
+            "author": "Nail Art",
+            "url": "",
+            "img_url": "https://i.pinimg.com/564x/a9/9b/06/a99b06e199e07387fea2065d943e931a.jpg",
+            "category": "",
+            "tags": ""
+        },
+        {
+            "id": "16",
+            "title": "FULL FORM FOR WELL KNOWN ABBREVIATIONS",
+            "description": "",
+            "author": "SEERAAR PEREZHIL சீரார் பேரெழில்",
+            "url": "",
+            "img_url": "https://i.pinimg.com/564x/54/25/e6/5425e614681b22323e4e5f146434fc84.jpg",
+            "category": "",
+            "tags": ""
+        },
+        {
+            "id": "17",
+            "title": "Parisian Flan (French Custard Pie)",
+            "description": "This Parisian-style flan dessert is a recipe that'll whisk you away to France!",
+            "author": "RICARDO",
+            "url": "https://www.ricardocuisine.com/en/recipes/5933-parisian-flan-french-custard-pie-?oft_id=56736607&oft_k=SD090Tfa&oft_lk=9eGfPq&oft_d=636288289991200000",
+            "img_url": "https://i.pinimg.com/564x/b4/eb/7f/b4eb7f67c6e15e703b6f39b3c70dab42.jpg",
+            "category": "Baking",
+            "ingredients": [
+                "1 Egg",
+                "5 Egg yolk",
+                "Baking & spices",
+                "5 1/2 cups All-purpose flour",
+                "unbleached 6 tbsp Cornstarch",
+                "1/4 tsp Salt",
+                "1 1/16 cup Sugar",
+                "1 Vanilla bean",
+                "1 cup 35% cream",
+                "3/4 cup Butter, unsalted",
+                "3 1/4 cups Milk"
+            ],
+            "tags": [
+                "Cooking",
+                "Baking"
+            ]
+        },
+        {
+            "id": "18",
+            "title": "Out of this World Turkey Brine",
+            "description": "My first attempt at doing a brine and I will NEVER prepare a turkey any other way from now on. This definitely was out of this world, moist and tasty.",
+            "author": "Allrecipes",
+            "url": "https://www.allrecipes.com/recipe/85839/out-of-this-world-turkey-brine/?utm_campaign=allrecipes_allrecipes_10797706&utm_term=thanksgivingrecipes_201911&utm_medium=social&utm_source=pinterest.com&utm_content=holiday_verticalimage",
+            "img_url": "https://i.pinimg.com/564x/83/7c/66/837c66af068cc730481df23008eff03b.jpg",
+            "category": "Cooking",
+            "ingredients": [
+                "3 tbsp Garlic",
+                "Condiments",
+                "1/4 cup Worcestershire sauce",
+                "1 tbsp Black pepper",
+                "ground 1/3 cup Brown sugar",
+                "1 1/2 cups Canning salt",
+                "2 gal Water"
+            ],
+            "tags": [
+                "Cooking",
+                "Baking"
+            ]
+        },
+        {
+            "id": "19",
+            "title": "Five Tips For Growing Celery | Growing In The Garden",
+            "description": "Are you looking to start a vegetable garden? Check out these 5 tips for growing celery in your garden. Celery is a great addition to your organic garden and is a nice healthy snack for your family.",
+            "author": "White Leaf Provisions",
+            "url": "https://growinginthegarden.com/five-tips-for-growing-celery/",
+            "img_url": "https://i.pinimg.com/564x/6a/53/e5/6a53e55d5fd1050f3652ceff1859b465.jpg",
+            "category": "Farming",
+            "tags": [
+                "agriculture",
+                "Farming",
+                "vegetables"
+            ]
+        },
+        {
+            "id": "20",
+            "title": "GK In Hindi",
+            "description": "",
+            "author": "",
+            "url": "amzn.to",
+            "img_url": "https://i.pinimg.com/564x/2b/45/f7/2b45f7fcfe76c593d70b82e2c664191b.jpg",
+            "category": "General Knowledge",
+            "tags": [
+                "GK",
+                "India",
+                "primeministers"
+            ]
         }
     ]
 }

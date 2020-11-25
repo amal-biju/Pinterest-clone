@@ -43,6 +43,7 @@ export class Signup extends Component {
         this.state = {
             email: "",
             password: "",
+            age:"",
             visible:false
         }
     }
@@ -62,11 +63,12 @@ export class Signup extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const { email, password } = this.state
-        const { handleLogin} = this.context
-        console.log(email,password)
-        handleLogin(email, password);
-        if(1){
+        const { email, password,age } = this.state
+        const { handleSignup} = this.context
+        console.log(email,password,age)
+        var stat=handleSignup(email, password,age);
+        
+        if(stat){
         setTimeout(() => {
                 this.setState({
                     visible:false
@@ -85,7 +87,7 @@ export class Signup extends Component {
    
 
     render() {
-        const { email, password ,visible} = this.state
+        const { email, password ,visible,age} = this.state
         const { isAuth, isLoading, token, error } = this.context
         return (
             <div>
@@ -96,8 +98,8 @@ export class Signup extends Component {
                 visible={visible}
                 footer={null}
                 onCancel={this.handleCancel}
-                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"600px",height:"600px",textAlign:"center"}}
-                style={{top:20,margin:"auto",borderRadius:"100px"}}
+                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"600px",height:"720px",textAlign:"center"}}
+                style={{top:5,margin:"auto",borderRadius:"100px"}}
                 borderRadius="200px"
                 
             >
@@ -105,28 +107,35 @@ export class Signup extends Component {
                  <Form onSubmit={this.handleSubmit}>
                      
                      <h1>Welcome to Pinterest</h1>
+                     <h4>Find new ideas to try</h4>
                             <input
-                                type="text"
+                                type="email"
                                 value={email}
                                 name="email"
-                                placeholder="email"
+                                placeholder="Email Address"
                                 onChange={this.handleChange} />
                             <br />
                             <input
                                 type="text"
                                 value={password}
                                 name="password"
-                                placeholder="password"
+                                placeholder="Create a password"
                                 onChange={this.handleChange} />
                                 <br/>
-                                Forgot Your password?
-                                <br/>
+                                <input
+                                type="number"
+                                value={age}
+                                name="age"
+                                placeholder="Age"
+                                onChange={this.handleChange} />
+                                <br/><div>{error==303? "User Already Exist":""}</div><br />
                             <input style={{backgroundColor:"red",fontWeight:"600", color:"white",marginTop:"30px"}} type="submit" value="Log In" /><br/>
                             <div>Or</div>
                             <input style={{backgroundColor:"blue",fontWeight:"600", color:"white"}} type="submit" value="Continue with Facebook" /><br/>
                             <input style={{backgroundColor:"grey",fontWeight:"600", color:"white",marginBottom:"30px"}} type="submit" value="Continue with Google" /><br/>
-                            <div>By continuing, you agree to Pinterest's Terms of Service, Privacy Policy.</div><br/><hr/>
-                            <div>Not on Pinterest yet? Sign-up</div>
+                            <div>By continuing, you agree to Pinterest's Terms of Service, Privacy Policy.</div><br/>
+                            <div>Already a Member? Log in</div><br/><hr/>
+                            <div style={{fontWeight:500}}>Create a Business Account</div>
                         {error && "something went wrong"}
                         </Form>
             </Modal>

@@ -44,7 +44,8 @@ export class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            visible:false
+            visible:false,
+            error:false
         }
     }
 
@@ -66,8 +67,8 @@ export class Login extends Component {
         const { email, password } = this.state
         const { handleLogin,isAuth} = this.context
         console.log(isAuth)
-        var a=handleLogin(email, password);
-        if(a){
+        var auth=handleLogin(email, password);
+        if(auth){
         setTimeout(() => {
                 this.setState({
                     visible:false
@@ -97,9 +98,9 @@ export class Login extends Component {
                 visible={visible}
                 footer={null}
                 onCancel={this.handleCancel}
-                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"600px",height:"600px",textAlign:"center"}}
-                style={{top:20,margin:"auto",borderRadius:"100px"}}
-                borderRadius="200px"
+                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"100px !important",height:"600px",textAlign:"center"}}
+                style={{top:20,margin:"auto",borderRadius:"100px !important"}}
+                borderRadius="200px !important" 
                 
             >
                 <img src="./icon.png" alt="LOGO" srcset="" width="35px" />
@@ -112,14 +113,14 @@ export class Login extends Component {
                                 name="email"
                                 placeholder="email"
                                 onChange={this.handleChange} />
-                            <br />
+                            <br /><div>{error==101? "User does not Exist":""}</div><br />
                             <input
                                 type="text"
                                 value={password}
                                 name="password"
                                 placeholder="password"
                                 onChange={this.handleChange} />
-                                <br/>
+                                <br /><div>{error==202? "Incorrect Password":""}</div><br />
                                 Forgot Your password?
                                 <br/>
                             <input style={{backgroundColor:"red",fontWeight:"600", color:"white",marginTop:"30px"}} type="submit" value="Log In" /><br/>
