@@ -15,8 +15,11 @@ class DataContextProvider extends Component {
              users : [],
              savedPins : [],
              isSaved : false,
-             savedIds : []
+             savedIds : [],
+             today : []
+             
         }
+        this.getTodayById=this.getTodayById.bind(this)
     }
     componentDidMount() {
         axios.get("http://localhost:3004/pins")
@@ -29,7 +32,27 @@ class DataContextProvider extends Component {
             this.setState({
                 error : true
             })
+           
+        });
+        axios.get("http://localhost:3004/today")
+        .then ((res)=>{
+            this.setState({
+                today : res.data
+            })
         })
+        .catch((err)=>{
+            this.setState({
+                error : true
+            })
+        })
+    }
+    
+    getTodayById(id){
+        const { today } = this.state
+        console.log(today)
+        const item = today.find((item)=>item.id == (id))
+        console.log(item)
+        return item
     }
     addSavedPins = id => {
         const  { pins,savedPins,savedIds } = this.state;
@@ -44,11 +67,12 @@ class DataContextProvider extends Component {
     getPins = () => {
         return this.state.pins;
     }
+    
 
     render() {
-        const { pins,isSaved,savedIds } = this.state
-        const { getPins,addSavedPins } = this
-        const value = { pins,getPins,addSavedPins,isSaved,savedIds }
+        const { pins,isSaved,savedIds,today } = this.state
+        const { getPins,addSavedPins,getTodayById } = this
+        const value = { pins,getPins,addSavedPins,getTodayById,isSaved,savedIds,today }
         return (
             <DataContext.Provider value={value}>
                 {this.props.children}
