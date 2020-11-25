@@ -31,14 +31,14 @@ class Today extends React.Component{
             today : []
         }
     }
-    componentDidCatch(){
+    componentDidMount(){
         const { today } = this.context
         this.setState({
-            today : [...today]
+            today : today
         })
     }
     render(){
-        const { today } = this.context
+        const { today } = this.state
         
         return(
             <div style ={{textAlign:"center"}}><h1>Today {new Date().toLocaleDateString('en-GB')}</h1>

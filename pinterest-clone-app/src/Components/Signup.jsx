@@ -95,7 +95,7 @@ export class Signup extends Component {
                 visible={visible}
                 footer={null}
                 onCancel={this.handleCancel}
-                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"600px",height:"720px",textAlign:"center"}}
+                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"600px",height:"max-content",textAlign:"center"}}
                 style={{top:5,margin:"auto",borderRadius:"100px"}}
                 borderRadius="200px"
                 
@@ -110,7 +110,8 @@ export class Signup extends Component {
                                 value={email}
                                 name="email"
                                 placeholder="Email Address"
-                                onChange={this.handleChange} />
+                                onChange={this.handleChange} 
+                                required/>
                             <br />
                             <input
                                 type="text"

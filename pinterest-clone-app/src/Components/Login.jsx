@@ -98,7 +98,7 @@ export class Login extends Component {
                 visible={visible}
                 footer={null}
                 onCancel={this.handleCancel}
-                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"100px !important",height:"600px",textAlign:"center"}}
+                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"100px !important",height:"max-content",textAlign:"center"}}
                 style={{top:20,margin:"auto",borderRadius:"100px !important"}}
                 borderRadius="200px !important" 
                 

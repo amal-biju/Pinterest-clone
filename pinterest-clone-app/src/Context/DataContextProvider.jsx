@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import random from './random.json'
 
 const DataContext = React.createContext()
 
@@ -17,6 +18,7 @@ class DataContextProvider extends Component {
             isSaved : false,
             savedIds : [],
             today : [],
+            random : [...random],
             curruser: {
                 "id": "1",
                 "name": "Charleson Davis",
@@ -90,8 +92,12 @@ class DataContextProvider extends Component {
         this.handleLogout = this.handleLogout.bind(this)
         this.handleSignup = this.handleSignup.bind(this)
         this.getTodayById = this.getTodayById.bind(this)
+        this.getRandom = this.getRandom.bind(this)
     }
 
+    getRandom(){
+        return this.state.random
+    }
     componentDidMount() {
         axios.get("http://localhost:3004/today")
         .then ((res)=>{
@@ -241,8 +247,8 @@ class DataContextProvider extends Component {
     }
 
     render() {
-        const { pins, isAuth, users,isSaved,savedIds,error,curruser,today } = this.state
-        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById} = this
+        const { pins, isAuth, users,isSaved,savedIds,error,curruser,today,random } = this.state
+        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById,getRandom} = this
         const value = { 
             pins, 
             getPins, 
@@ -259,7 +265,9 @@ class DataContextProvider extends Component {
             error,
             curruser,
             today,
-            getTodayById
+            getTodayById,
+            random,
+            getRandom
         }
         return (
             <DataContext.Provider value={value}>
