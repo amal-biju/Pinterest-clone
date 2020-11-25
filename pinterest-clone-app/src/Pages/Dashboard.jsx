@@ -50,7 +50,7 @@ class DashBoard extends Component {
                            <div>All Pins</div>
                         </div>
                 {
-                    curruser.saved.map( pin => (<div>
+                    curruser.saved_pins.map( pin => (<div>
                         <div key={pin.title} style={{width:"230px", height:"150px", border:"1px solid black", borderRadius:"20px"}}>LOVE</div><br/>
                            <div>{pin.title}</div>
                         </div>

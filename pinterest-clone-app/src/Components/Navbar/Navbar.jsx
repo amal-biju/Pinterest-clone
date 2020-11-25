@@ -8,7 +8,10 @@ import { Login } from '../Login';
 import { DataContext } from '../../Context/DataContextProvider';
 
 const NavbarWrapper = styled.div`
-    padding : 8px;
+    padding : 5px;
+    position: sticky;
+    top : 0px;
+    z-index : 1;
     font-weight : 500;
     font-size : 16px;
     display: flex;
@@ -83,6 +86,30 @@ const ProfileLink = styled.div`
         background-color : #ddd;
     }
 `;
+const Cross = styled.div`
+    background-color : white;
+    padding : 0px 15px;
+    border-radius : 50%;
+    width : max-content;
+    font-size : 30px;
+    font-weight : 500;
+    position : fixed;
+    bottom : 90px;
+    right : 30px;
+    box-shadow : 0px 1px 3px grey;
+`;
+const Question = styled.div`
+    background-color : white;
+    padding : 0px 17px;
+    border-radius : 50%;
+    width : max-content;
+    font-size : 30px;
+    font-weight : 500;
+    position : fixed;
+    bottom : 30px;
+    right : 30px;
+    box-shadow : 0px 1px 3px grey;
+`;
 
 const links = [
     {
@@ -109,6 +136,7 @@ class Navbar extends Component {
     render() {
         const { isAuth } = this.context;
         return (
+            <>
             <NavbarWrapper>
                 <Logo src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-svg-vector.svg" alt="Logo"/>
                 {
@@ -152,6 +180,9 @@ class Navbar extends Component {
                 }
                 
             </NavbarWrapper>
+            <Cross>+</Cross>
+            <Question>?</Question>
+            </>
         )
     }
 }

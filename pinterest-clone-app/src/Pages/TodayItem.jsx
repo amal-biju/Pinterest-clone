@@ -23,8 +23,8 @@ class TodayItem extends React.Component{
     render(){
         const { todayItem } = this.state
         return(
-            <div>
-                Display Today Items
+            <div style={{textAlign:"center"}}>
+                <h1>Todays Special</h1>
             </div>
         )
     }
