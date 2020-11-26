@@ -9,6 +9,8 @@ import { DataContext } from '../../Context/DataContextProvider';
 
 const NavbarWrapper = styled.div`
     padding : 5px;
+    height:10%;
+    width:100%
     position: sticky;
     top : 0px;
     z-index : 1;
@@ -33,11 +35,11 @@ const NavbarWrapper = styled.div`
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
         font-weight : 600;
-
     }
 `;
 const Search = styled.input`
     padding : 7px 10px 7px 5px;
+    
     border : none;
     border-radius : 0px 25px 25px 0px;
     border : 4px solid #eee;
@@ -51,7 +53,6 @@ const Search = styled.input`
     }
     &:focus {
         outline : none;
-
     }
 `;
 const Logo = styled.img`
@@ -64,7 +65,7 @@ const Logo = styled.img`
     }
 `;
 
-const SearchIcon =styled.img`
+const SearchIcon = styled.img`
     height : 15px;
     background-color : #eee;
     opacity : 0.5;
@@ -88,9 +89,11 @@ const ProfileLink = styled.div`
 `;
 const Cross = styled.div`
     background-color : white;
-    padding : 0px 15px;
+    width:50px;
+    z-index : 1;
+    height:50px;
+    text-align: center;
     border-radius : 50%;
-    width : max-content;
     font-size : 30px;
     font-weight : 500;
     position : fixed;
@@ -100,6 +103,7 @@ const Cross = styled.div`
 `;
 const Question = styled.div`
     background-color : white;
+    z-index : 1;
     padding : 0px 17px;
     border-radius : 50%;
     width : max-content;
@@ -113,82 +117,98 @@ const Question = styled.div`
 
 const links = [
     {
-        to : "/",
-        title : "Home"
+        to: "/",
+        title: "Home"
     },
     {
-        to : "/today",
-        title : "Today"
+        to: "/today",
+        title: "Today"
     },
     {
-        to : "/following",
-        title : "Following"
+        to: "/following",
+        title: "Following"
     }
 ]
 
 
 class Navbar extends Component {
     handleClick = () => {
-        const { history } = this.props; 
+        const { history } = this.props;
         history.replace('/dashboard')
     }
-    
+
     render() {
         const { isAuth } = this.context;
+        const mystyle = {
+            backgroundColor: "white",
+            width: "50px",
+            height: "50px",
+            textAlign: "center",
+            borderRadius: "50%",
+            fontSize: "30px",
+            fontWeight: "500",
+            position: "fixed",
+            bottom: "90px",
+            right: "30px",
+            boxShadow: "0px 1px 3px grey",
+            zIndex : "1"
+        }
+        const myactivestyle={
+            backgroundColor: "red",
+            color:"white"            
+        }
         return (
             <>
-            <NavbarWrapper>
-                <Logo src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-svg-vector.svg" alt="Logo"/>
-                {
-                    links.map( link => (
-                        <NavLink
-                            style={{margin:3,padding:"12px 15px"}}
-                            activeStyle={{backgroundColor:'black',color:"white",borderRadius:"35px"}}
-                            key={link.to}
-                            to={link.to}
-                        >
-                            {link.title}
-                        </NavLink>
-                    ))
-                }
-                
-                <SearchIconWrapper>
-                    <SearchIcon src="https://www.flaticon.com/svg/static/icons/svg/598/598494.svg" alt="Icon" />
-                </SearchIconWrapper>
-                {
-                    isAuth ? (
-                        <Search type="text" placeholder="Search" style={{width:"60%"}}/>
-                    ) : (
-                        <Search type="text" placeholder="Search"/>
-                    )
-                }
-                <Notifications />
-                <Inbox />
-                {
-                    isAuth ? (
-                        // <ProfileLink onClick={this.handleClick}>A</ProfileLink>
-                        <Link to="/dashboard" style={{
-                            margin:10,
-                            padding:10
-                        }}>CD</Link>
-                    ) : (
-                        <>
-                            <Login />
-                            <Signup />
-                        </>
-                    )
-                }
-                
-            </NavbarWrapper>
-            <Cross>+</Cross>
-            <Question>?</Question>
+                <NavbarWrapper>
+                    <Logo src="./icon.png" alt="Logo" />
+                    {
+                        links.map(link => (
+                            <NavLink
+                                style={{ margin: 3, padding: "12px 15px" }}
+                                activeStyle={{ backgroundColor: 'black', color: "white", borderRadius: "35px" }}
+                                key={link.to}
+                                to={link.to}
+                            >
+                                {link.title}
+                            </NavLink>
+                        ))
+                    }
+
+                    <SearchIconWrapper>
+                        <SearchIcon src="https://www.flaticon.com/svg/static/icons/svg/598/598494.svg" alt="Icon" />
+                    </SearchIconWrapper>
+                    {
+                        isAuth ? (
+                            <Search type="text" placeholder="Search" style={{ width: "60%" }} />
+                        ) : (
+                                <Search type="text" placeholder="Search" />
+                            )
+                    }
+                    <Notifications />
+                    <Inbox />
+                    {
+                        isAuth ? (
+                            // <ProfileLink onClick={this.handleClick}>A</ProfileLink>
+                            <Link to="/dashboard" style={{
+                                margin: 10,
+                                padding: 10,
+                            }}>CD</Link>
+                        ) : (
+                                <>
+                                    <Login />
+                                    <Signup />
+                                </>
+                            )
+                    }
+                </NavbarWrapper>
+                <NavLink
+                    style={mystyle}
+                    activeStyle={myactivestyle}
+                    to="./pinbuilder">+</NavLink>
+                <Question>?</Question>
             </>
         )
     }
 }
-
 Navbar.contextType = DataContext
-
 export { Navbar }
-
-

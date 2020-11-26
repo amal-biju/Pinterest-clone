@@ -90,6 +90,12 @@
       "password": "",
       "age": "",
       "id": "XLrDSTp"
+    },
+    {
+      "email": "hello@masai.com",
+      "password": "admin",
+      "age": "25",
+      "id": "SgAkaPL"
     }
   ],
   "pins": [
@@ -338,6 +344,86 @@
         "India",
         "primeministers"
       ]
+    },
+    {
+      "title": "Cycle",
+      "description": "Cycles",
+      "author": "Charleson Davis",
+      "img_url": "https://picsum.photos/400/600",
+      "url": "https://i.pinimg.com/236x/d8/a0/ab/d8a0ab656dc604a05512a639abdde4e1.jpg",
+      "id": "Q0pOfJZ"
+    },
+    {
+      "title": "batman",
+      "description": "A Transformation in education!",
+      "author": "Charleson Davis",
+      "img_url": "https://picsum.photos/400/600",
+      "url": "https://i.pinimg.com/236x/50/18/37/50183721862868ad5f3bb043bd7228d0.jpg",
+      "id": "1PfGbEa"
+    },
+    {
+      "title": "batman",
+      "description": "asd",
+      "author": "Charleson Davis",
+      "img_url": "https://picsum.photos/400/600",
+      "url": "a",
+      "id": "K2dz_cm"
+    },
+    {
+      "title": "Batman",
+      "description": "Hero",
+      "author": "Charleson Davis",
+      "img_url": "https://i.pinimg.com/236x/50/18/37/50183721862868ad5f3bb043bd7228d0.jpg",
+      "url": "https://picsum.photos/400/600",
+      "id": "C6VsSFy"
+    },
+    {
+      "title": "Camp",
+      "description": "Hello",
+      "author": "Charleson Davis",
+      "img_url": "https://i.pinimg.com/236x/81/17/db/8117db18fb5559b4e0daf53f14d452dd.jpg",
+      "url": "https://picsum.photos/400/600",
+      "id": "eX0Q1zV"
+    },
+    {
+      "title": "",
+      "description": "",
+      "author": "Charleson Davis",
+      "img_url": "",
+      "url": "https://picsum.photos/400/600",
+      "id": "KvHMcPH"
+    },
+    {
+      "title": "batman",
+      "description": "gotham",
+      "author": "Charleson Davis",
+      "img_url": "https://i.pinimg.com/236x/89/70/86/897086ef649f762e1f215a737353089d.jpg",
+      "url": "https://picsum.photos/400/600",
+      "id": "4TXVF9V"
+    },
+    {
+      "title": "Lion",
+      "description": "king",
+      "author": "Charleson Davis",
+      "img_url": "https://i.pinimg.com/236x/9d/42/bf/9d42bf37723f9a4b120de3fa3454fe2d.jpg",
+      "url": "https://picsum.photos/400/600",
+      "id": "oiMsALG"
+    },
+    {
+      "title": "MJ",
+      "description": "sports",
+      "author": "Charleson Davis",
+      "img_url": "https://i.pinimg.com/236x/4b/d5/23/4bd5238756a23631dcabfb4340c1452e.jpg",
+      "url": "https://picsum.photos/400/600",
+      "id": "2k9Q7Tb"
+    },
+    {
+      "title": "qwe",
+      "description": "qew",
+      "author": "Charleson Davis",
+      "img_url": "https://i.pinimg.com/236x/af/87/4b/af874b2e6d290a81d2d0b28b2ad22941.jpg",
+      "url": "https://picsum.photos/400/600",
+      "id": "x9iiusk"
     }
   ],
   "today": [
@@ -678,7 +764,7 @@
     },
     {
       "id": 5,
-      "today_img": "https://i.pinimg.com/736x/01/55/ef/0155ef3d4465c54e8b2f38be956143c5.jpg",
+      "today_img": "https://i.pinimg.com/236x/dc/8b/41/dc8b41e23fbf3c8b6e6311febf858044.jpg",
       "today_title": "Comedies to Watch",
       "today_pins": [
         {

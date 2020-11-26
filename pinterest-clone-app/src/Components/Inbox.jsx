@@ -103,6 +103,7 @@ const Inbox = () => {
                 closable={false}
                 onClose={onClose}
                 visible={visible}
+                width={350}
             >
                 <h1>Share Ideas With Your Friends</h1>
                 <InboxWrapper>

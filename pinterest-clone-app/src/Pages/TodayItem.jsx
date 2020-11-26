@@ -120,11 +120,13 @@ class TodayItem extends React.Component{
         return(
             <div>
             <Todaytop>
-                <TodayMain style = {{backgroundImage:`url(${todayItem.today_img})`,backgroundSize :"cover"}}>
-                    <h1 style = {{position :"relative"}}>{todayItem.today_title}</h1><div style = {{margin:"auto",color:"black",textAlign:"center"}}>
-                <button style={{width:"100px",height:"60px",borderRadius:"30px"}}>SHARE</button>
-            </div></TodayMain>
-                    <div style ={{margin: "auto",textAlign:"center"}}>
+                <TodayMain style = {{backgroundImage:`url(${todayItem.today_img})`,backgroundSize :"cover",padding:"20px",marginTop:"20px"}}>
+                    <h1 style = {{textAlign:"center"}}>{todayItem.today_title}</h1>
+                    <div style = {{margin:"auto",color:"black",textAlign:"center"}}>
+                        <button style={{width:"100px",height:"50px",border:"none",borderRadius:"30px"}}>Share</button>
+                    </div>
+                </TodayMain>
+                    <div style ={{margin: "20px auto",textAlign:"center"}}>
                         <h1>{todayItem.today_title}</h1>
                         <div>18, aug 2020</div>
                     </div>

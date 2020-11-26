@@ -28,16 +28,16 @@ class DataContextProvider extends Component {
                 "followers": ["amalbiju99@gamil.com", "eve.holt@reqres.in", "lovely@gmail.com"],
                 "saved":[
                     {
-                        "title":"cooking"
+                        "title":"Cooking"
                     },
                     {
-                        "title":"baking"
+                        "title":"Baking"
                     },
                     {
-                        "title":"gardening"
+                        "title":"Gardening"
                     },
                     {
-                        "title":"camping"
+                        "title":"Camping"
                     }
                 ],
                 "age": "28",
@@ -93,6 +93,8 @@ class DataContextProvider extends Component {
         this.handleSignup = this.handleSignup.bind(this)
         this.getTodayById = this.getTodayById.bind(this)
         this.getRandom = this.getRandom.bind(this)
+        this.addpin = this.addpin.bind(this)
+        this.getPinById = this.getPinById.bind(this)
     }
 
     getRandom(){
@@ -156,11 +158,16 @@ class DataContextProvider extends Component {
     }
 
     addSavedPins(id){
-        const  { savedIds } = this.state;
+        const  { savedIds,pins,savedPins } = this.state;
+
+        const item = pins.find( data => data.id == id )
+        console.log(item);
+
 
         this.setState({
             isSaved : true,
-            savedIds : [...savedIds,id]
+            savedIds : [...savedIds,id],
+            savedPins : [...savedPins,item]
         })
     }
 
@@ -204,6 +211,32 @@ class DataContextProvider extends Component {
         }
 
     }
+
+    addpin(title,description,link,img){
+        console.log("addingpin")
+        axios({
+            url: "http://localhost:3004/pins",
+            method: "post",
+            data: {
+                title:title,
+                description:description,
+                author:this.state.curruser.name,
+                img_url:link,
+                url:img
+            }
+        }).then(res => {
+            this.setState({
+                isAuth: true,
+                error: false
+            })
+        }).catch(err => {
+            this.setState({
+                error: 304,
+                isLoading: false
+            })
+        })
+    }
+
     handleSignup(email, password, age) {
         console.log("Registering")
 
@@ -241,14 +274,18 @@ class DataContextProvider extends Component {
         })
 
         return true
+    }
+    getPinById(id){
+        const{ pins }=this.state
 
-
-
+        const item=pins.find( data => data.id == id )
+        
+        return item
     }
 
     render() {
-        const { pins, isAuth, users,isSaved,savedIds,error,curruser,today,random } = this.state
-        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById,getRandom} = this
+        const { pins, isAuth, users,isSaved,savedIds,error,curruser,today,random,savedPins } = this.state
+        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById,getRandom,addpin,getPinById} = this
         const value = { 
             pins, 
             getPins, 
@@ -267,7 +304,10 @@ class DataContextProvider extends Component {
             today,
             getTodayById,
             random,
-            getRandom
+            getRandom,
+            savedPins,
+            addpin,
+            getPinById
         }
         return (
             <DataContext.Provider value={value}>
