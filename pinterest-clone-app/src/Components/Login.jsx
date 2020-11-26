@@ -21,20 +21,38 @@ const Form = styled.form`
     border-radius : 30px;
     align-items: center;
     width:100%;
- 
-    & input {
-        width:300px;
-        
-        padding:5px 10px;
-        font-size:20px;
-        border-radius:25px;
-        margin-bottom:10px;
-        margin-top:10px;        
-    }
-    & input:focus {
+    margin-top : 20px;
+    
+`;
+
+const Input = styled.input`
+    width : 300px;
+    border : 1px solid #ddd;
+    border-radius : 10px;
+    padding : 12px;
+    margin-bottom : 10px;
+    &:focus{
         outline : none;
     }
-    
+    &::placeholder{
+        font-weight : 400;
+        font-size : 16px;
+    }
+`;
+const InputBtn = styled.input`
+    border-radius : 25px;
+    width : 300px;
+    border : 1px solid #ddd;
+    padding : 10px;
+    margin-bottom : 5px;
+    opacity : 0.95;
+    &:hover{
+        cursor : pointer;
+        opacity : 1;
+    }
+    &:focus{
+        outline : none;
+    }
 `;
 
 export class Login extends Component {
@@ -97,41 +115,38 @@ export class Login extends Component {
                 visible={visible}
                 footer={null}
                 onCancel={this.handleCancel}
-                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"100px !important",height:"max-content",textAlign:"center"}}
+                bodyStyle={{padding:"15px 0px 0px 0px", margin:"auto",borderRadius:"100px !important",height:"max-content",textAlign:"center"}}
                 style={{top:20,margin:"auto",borderRadius:"100px !important"}}
                 borderRadius="200px !important" 
                 
             >
                 <img src="./icon.png" alt="LOGO" width="35px" />
-                 <Form onSubmit={this.handleSubmit}>
-                     
                      <h1>Welcome to Pinterest</h1>
-                            <input
+                 <Form onSubmit={this.handleSubmit}>
+                            <Input
                                 type="text"
                                 value={email}
                                 name="email"
-                                placeholder="email"
-                                onChange={this.handleChange} />
-                            <br />
+                                placeholder="Email"
+                                onChange={this.handleChange} 
+                                required/>
                             <div>{error==101? "User does not Exist":""}</div>
-                            <br />
-                            <input
-                                type="text"
+                            <Input
+                                type="password"
                                 value={password}
                                 name="password"
-                                placeholder="password"
-                                onChange={this.handleChange} />
+                                placeholder="Password"
+                                onChange={this.handleChange} 
+                                required/>
                                 <br />
+                                <div>Forgotten your password?</div> 
+                            <InputBtn style={{backgroundColor:"red",fontWeight:"600", color:"white",marginTop:"20px"}} type="submit" value="Log In" /><br/>
                                 <div>{error==202? "Incorrect Password":""}</div>
-                                <br />
-                                <div>Forgot Your password?</div> 
-                                <br/>
-                            <input style={{backgroundColor:"red",fontWeight:"600", color:"white",marginTop:"30px"}} type="submit" value="Log In" /><br/>
                             <div>Or</div>
-                            <input style={{backgroundColor:"blue",fontWeight:"600", color:"white"}} type="submit" value="Continue with Facebook" /><br/>
-                            <input style={{backgroundColor:"grey",fontWeight:"600", color:"white",marginBottom:"30px"}} type="submit" value="Continue with Google" /><br/>
-                            <div>By continuing, you agree to Pinterest's Terms of Service, Privacy Policy.</div><br/><hr/>
-                            <div>Not on Pinterest yet? Sign-up</div>
+                            <InputBtn style={{backgroundColor:"blue",fontWeight:"600", color:"white"}} type="submit" value="Continue with Facebook" /><br/>
+                            <InputBtn style={{backgroundColor:"grey",fontWeight:"600", color:"white",marginBottom:"30px"}} type="submit" value="Continue with Google" /><br/>
+                            <div>By continuing, you agree to Pinterest's Terms of Service, Privacy Policy.</div><br/>
+                            <div style={{backgroundColor:"#ddd",padding:"15px",fontSize:"16px"}}>Not on Pinterest yet? Sign-up</div>
                         {error && "something went wrong"}
                         </Form>
             </Modal>

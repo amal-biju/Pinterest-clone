@@ -17,21 +17,42 @@ const SignupBtn = styled.div`
 
 const Form = styled.form`
     
+    margin-top : 20px;
     text-align: center;
     border-radius : 30px;
     align-items: center;
     width:100%;
- 
-    & input {
-        width:300px;
-        
-        padding:5px;
-        font-size:20px;
-        border-radius:25px;
-        margin-bottom:10px;
-        margin-top:10px;        
-    }
     
+`;
+
+const Input = styled.input`
+    width : 300px;
+    border : 1px solid #ddd;
+    border-radius : 10px;
+    padding : 10px;
+    margin-bottom : 5px;
+    &:focus{
+        outline : none;
+    }
+    &::placeholder{
+        font-weight : 400;
+        font-size : 15px;
+    }
+`;
+const InputBtn = styled.input`
+    border-radius : 25px;
+    width : 300px;
+    border : 1px solid #ddd;
+    padding : 10px;
+    margin-bottom : 5px;
+    opacity : 0.95;
+    &:hover{
+        cursor : pointer;
+        opacity : 1;
+    }
+    &:focus{
+        outline : none;
+    }
 `;
 
 export class Signup extends Component {
@@ -95,17 +116,15 @@ export class Signup extends Component {
                 visible={visible}
                 footer={null}
                 onCancel={this.handleCancel}
-                bodyStyle={{padding:"10px", margin:"auto",borderRadius:"600px",height:"max-content",textAlign:"center"}}
-                style={{top:5,margin:"auto",borderRadius:"100px"}}
-                borderRadius="200px"
-                
+                bodyStyle={{padding:"15px 0px 0px 0px", margin:"auto",height:"max-content",textAlign:"center"}}
+                style={{top:5,margin:"auto"}}
             >
                 <img src="./icon.png" alt="LOGO" srcset="" width="35px" />
+                     <h1 style={{fontWeight:"bolder"}}>Welcome to Pinterest</h1>
+                     <h4>Find new ideas to try</h4>
                  <Form onSubmit={this.handleSubmit}>
                      
-                     <h1>Welcome to Pinterest</h1>
-                     <h4>Find new ideas to try</h4>
-                            <input
+                            <Input
                                 type="email"
                                 value={email}
                                 name="email"
@@ -113,27 +132,29 @@ export class Signup extends Component {
                                 onChange={this.handleChange} 
                                 required/>
                             <br />
-                            <input
+                            <Input
                                 type="text"
                                 value={password}
                                 name="password"
                                 placeholder="Create a password"
-                                onChange={this.handleChange} />
+                                onChange={this.handleChange} 
+                                required/>
                                 <br/>
-                                <input
+                                <Input
                                 type="number"
                                 value={age}
                                 name="age"
                                 placeholder="Age"
-                                onChange={this.handleChange} />
-                                <br/><div>{error==303? "User Already Exist":""}</div><br />
-                            <input style={{backgroundColor:"red",fontWeight:"600", color:"white",marginTop:"30px"}} type="submit" value="Log In" /><br/>
+                                onChange={this.handleChange} 
+                                required/>
+                                <div>{error==303? "User Already Exist":""}</div>
+                            <InputBtn style={{backgroundColor:"red",fontWeight:"600", color:"white",marginTop:"30px"}} type="submit" value="Signup" /><br/>
                             <div>Or</div>
-                            <input style={{backgroundColor:"blue",fontWeight:"600", color:"white"}} type="submit" value="Continue with Facebook" /><br/>
-                            <input style={{backgroundColor:"grey",fontWeight:"600", color:"white",marginBottom:"30px"}} type="submit" value="Continue with Google" /><br/>
+                            <InputBtn style={{backgroundColor:"blue",fontWeight:"600", color:"white"}} type="submit" value="Continue with Facebook" /><br/>
+                            <InputBtn style={{backgroundColor:"#eee",fontWeight:"600", color:"black",marginBottom:"30px"}} type="submit" value="Continue with Google" /><br/>
                             <div>By continuing, you agree to Pinterest's Terms of Service, Privacy Policy.</div><br/>
-                            <div>Already a Member? Log in</div><br/><hr/>
-                            <div style={{fontWeight:500}}>Create a Business Account</div>
+                            <div>Already a Member? Log in</div><br/>
+                            <div style={{fontWeight:500,backgroundColor:"#ddd",padding:"15px",fontSize:"16px"}}>Create a Business Account</div>
                         {error && "something went wrong"}
                         </Form>
             </Modal>
