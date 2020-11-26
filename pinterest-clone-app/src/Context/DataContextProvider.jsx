@@ -13,10 +13,15 @@ class DataContextProvider extends Component {
             isAuth: false,
             isLoading: false,
             error: false,
+            savedPins : [],
+            isSaved : false,
+            savedIds : [],
+            today : [],
             curruser: {
                 "id": "1",
                 "name": "Charleson Davis",
                 "email": "charlz1717@gmail.com",
+                "dp":"https://www.pcgamesn.com/wp-content/uploads/legacy/Mass_Effect_Andromeda_Shepard_0.jpg",
                 "password": "secret",
                 "following": ["amalbiju99@gamil.com", "eve.holt@reqres.in", "lovely@gmail.com"],
                 "followers": ["amalbiju99@gamil.com", "eve.holt@reqres.in", "lovely@gmail.com"],
@@ -78,16 +83,33 @@ class DataContextProvider extends Component {
                     }
                 ]
             }
-
         }
         this.getUsers = this.getUsers.bind(this)
         this.getPins = this.getPins.bind(this)
+        this.addSavedPins = this.addSavedPins.bind(this)
         this.handleLogin = this.handleLogin.bind(this)
+        this.handleLogout = this.handleLogout.bind(this)
         this.handleSignup = this.handleSignup.bind(this)
+        this.getTodayById = this.getTodayById.bind(this)
+        this.addpin = this.addpin.bind(this)
     }
 
+    componentDidMount() {
+        axios.get("http://localhost:3004/today")
+        .then ((res)=>{
+            this.setState({
+                today : res.data
+            })
+        })
+        .catch((err)=>{
+            this.setState({
+                error : true
+            })
+        })
+    }
+    
 
-    getPins() {
+    getPins(){
         console.log("getting pins")
         axios.get("http://localhost:3004/pins")
             .then(res => {
@@ -102,7 +124,7 @@ class DataContextProvider extends Component {
                 })
             })
     }
-    getUsers() {
+    getUsers(){
         console.log("getting Users")
         axios.get("http://localhost:3004/users")
             .then(res => {
@@ -119,6 +141,31 @@ class DataContextProvider extends Component {
             })
     }
 
+    getTodayById(id){
+        console.log(id);
+        const { today } = this.state
+        console.log(today)
+
+        const item = today.find( data => data.id == id )
+        console.log(item);
+        return item
+    }
+
+    addSavedPins(id){
+        const  { savedIds } = this.state;
+
+        this.setState({
+            isSaved : true,
+            savedIds : [...savedIds,id]
+        })
+    }
+
+    handleLogout(){
+        this.setState({
+            isAuth:false
+        })
+    }
+
     handleLogin(email, password) {
         console.log("logging in")
         this.setState({
@@ -133,7 +180,7 @@ class DataContextProvider extends Component {
                     console.log(users[i])
                     this.setState({
                         isAuth: true,
-                        curruser: users[i],
+                        
                         error: false
                     })
                     return true
@@ -153,7 +200,6 @@ class DataContextProvider extends Component {
         }
 
     }
-
     handleSignup(email, password, age) {
         console.log("Registering")
 
@@ -192,14 +238,55 @@ class DataContextProvider extends Component {
 
         return true
 
+    }
 
-
+    addpin(title,description,link,img){
+        console.log("addingpin")
+        axios({
+            url: "http://localhost:3004/pins",
+            method: "post",
+            data: {
+                title:title,
+                description:description,
+                author:this.state.curruser.name,
+                img_url:img,
+                url:link
+            }
+        }).then(res => {
+            this.setState({
+                isAuth: true,
+                error: false
+            })
+        }).catch(err => {
+            this.setState({
+                error: 304,
+                isLoading: false
+            })
+        })
     }
 
     render() {
-        const { pins, isAuth, users, error, curruser } = this.state
-        const { getPins, handleLogin, getUsers, handleSignup } = this
-        const value = { error, pins, getPins, isAuth, pins, handleLogin, users, getUsers, handleSignup, curruser }
+        const { pins, isAuth, users,isSaved,savedIds,error,curruser,today } = this.state
+        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById,addpin} = this
+        const value = { 
+            pins, 
+            getPins, 
+            isAuth, 
+            pins, 
+            handleLogin, 
+            users ,
+            getUsers,
+            isSaved,
+            savedIds,
+            addSavedPins,
+            handleLogout,
+            handleSignup,
+            error,
+            curruser,
+            today,
+            getTodayById,
+            addpin
+        }
         return (
             <DataContext.Provider value={value}>
                 {this.props.children}

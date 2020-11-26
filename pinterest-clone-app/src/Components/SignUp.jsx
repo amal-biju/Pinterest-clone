@@ -16,14 +16,12 @@ const SignupBtn = styled.div`
 `;
 
 const Form = styled.form`
-
     
     text-align: center;
     border-radius : 30px;
     align-items: center;
     width:100%;
  
-
     & input {
         width:300px;
         
@@ -33,7 +31,6 @@ const Form = styled.form`
         margin-bottom:10px;
         margin-top:10px;        
     }
-
     
 `;
 
@@ -64,7 +61,7 @@ export class Signup extends Component {
     handleSubmit = e => {
         e.preventDefault()
         const { email, password,age } = this.state
-        const { handleSignup} = this.context
+        const { handleSignup } = this.context
         console.log(email,password,age)
         var stat=handleSignup(email, password,age);
         

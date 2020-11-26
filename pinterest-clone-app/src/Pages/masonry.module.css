@@ -1,7 +1,7 @@
 .container{
     width:100%;
     margin:5px auto;
-    columns: 6;
+    columns: 5;
     column-gap:7px;
 }
 
@@ -45,3 +45,52 @@
         box-sizing: border-box;
     }
 }
+
+
+.dp{
+    margin-top:10px;
+    font-weight: 600;
+}
+.dp img{
+    height:40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+.select{
+    margin-left: 100px;
+    margin-top: 5px;
+    
+}
+
+.select select{
+    height:35px ;
+    width: 170px;
+    background-color: #EFEFEF;
+    border: none;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.select select-selected{
+    background-color: DodgerBlue;
+}
+
+.select select-items{
+    height: 30px;
+}
+
+.select button{
+    height: 35px;
+    width: 60px;
+    background-color: red;
+    color: white;
+    font-weight: 750;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.select select option{
+    width: 50px;
+}
+

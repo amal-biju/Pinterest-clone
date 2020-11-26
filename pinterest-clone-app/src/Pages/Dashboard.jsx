@@ -27,10 +27,6 @@ const Image = styled.img`
 class DashBoard extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            pins: []
-        }
     }
 
 
@@ -60,6 +56,7 @@ class DashBoard extends Component {
         )
     }
 }
+
 DashBoard.contextType = DataContext
 
 export { DashBoard }

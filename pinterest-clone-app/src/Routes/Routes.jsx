@@ -1,25 +1,24 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Navbar } from '../Components/Navbar/Navbar'
-import { Home } from '../Pages/Home2'
-import styled from 'styled-components'
+import { Home } from '../Pages/Home'
 import { DashBoard } from '../Pages/Dashboard'
-
-const NavPositioner = styled.div`
-    position: sticky;
-    top : 0px;
-`;
+import { Today } from '../Pages/Today'
+import { TodayItem } from '../Pages/TodayItem'
+import { AddPin } from '../Pages/AddPin'
 
 const Routes = () => {
     return (
         <div>
-           <NavPositioner><Route path="/" render={()=><Navbar />} /></NavPositioner>
+           <Route path="/" render={()=><Navbar />} />
            <Switch>
-            <Route path="/" exact render={()=><Home />} />
-            <Route path="/today" exact render={()=> <div><h1>Today {new Date().toLocaleDateString('en-GB')}</h1></div> } />
-            <Route path="/following" exact render={()=><div><h1>Following 20 people</h1></div>} />
-            <Route path="/dashboard" exact render={()=><DashBoard />} />
-            <Route render={()=><h3>Error 404 Page not Found</h3>} />
+                <Route path="/" exact render={()=><Home />} />
+                <Route path="/today" exact render={()=> <Today/> } />
+                <Route path="/today/:today_id" exact render={(props)=> <TodayItem {...props}/> }/>      
+                <Route path="/following" exact render={()=><div style={{textAlign:"center"}}><img src="https://blog.apbbuilders.com/hubfs/Imported_Blog_Media/Blog%20Posts%20Featured%20Images/WIPAA-e1490930889545.jpg" alt="" width="100%"/></div>} />
+                <Route path="/dashboard" exact render={(props)=><DashBoard {...props}/>} />
+                <Route path="/pinbuilder" exact render={(props)=><AddPin {...props}/>} />
+                <Route render={()=><h3>Error 404 Page not Found</h3>} />
            </Switch>
         </div>
     )
