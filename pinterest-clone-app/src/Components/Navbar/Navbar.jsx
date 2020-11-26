@@ -35,7 +35,6 @@ const NavbarWrapper = styled.div`
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
         font-weight : 600;
-
     }
 `;
 const Search = styled.input`
@@ -54,7 +53,6 @@ const Search = styled.input`
     }
     &:focus {
         outline : none;
-
     }
 `;
 const Logo = styled.img`
@@ -199,7 +197,6 @@ class Navbar extends Component {
                                 </>
                             )
                     }
-
                 </NavbarWrapper>
                 <Link
                     style={mystyle}
@@ -210,9 +207,5 @@ class Navbar extends Component {
         )
     }
 }
-
 Navbar.contextType = DataContext
-
 export { Navbar }
-
-

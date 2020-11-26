@@ -27,11 +27,12 @@ const OnHover = styled.div`
     visibility : hidden;
 `;
 const OnHoverContents = styled.div`
-    position : relative;
-    top : 20px;
-    left : 16px;
+    position : absolute;
 `;
 const Whitebox = styled.div`
+    position : relative;
+    top : 20px;
+    left : 22px;
     display : inline;
     padding : 13px 50px;
     background-color : #ffffffb9;
@@ -42,6 +43,9 @@ const Whitebox = styled.div`
 `;
 const SaveBtn = styled.button`
     padding : 10px;
+    position : relative;
+    top : 20px;
+    left : 22px;
     color : white;
     background-color : #ed0000b9;
     border : none;
@@ -52,9 +56,9 @@ const SaveBtn = styled.button`
 `;
 
 const SpanContainer = styled.div`
-    position : absolute;
-    top : 550%;
-    left : 110px;
+    position : relative;
+    top : 200px;
+    left : 140px;
 `;
 
 const Span = styled.span`
@@ -70,6 +74,7 @@ const Span = styled.span`
 class Home extends Component {
     constructor(props) {
         super(props)
+        console.log(props)
     
         this.state = {
              pins : []
@@ -79,6 +84,12 @@ class Home extends Component {
         const { getPins,getUsers} = this.context;
         getPins();
         getUsers();
+    }
+
+    handlePinClick=(id)=>{
+        const {history}=this.props
+        console.log(history,id)
+        history.replace(`/${id}`)
     }
     
     
@@ -104,7 +115,7 @@ class Home extends Component {
                                         ) : ( 
                                             <>
                                                 <Whitebox style={{visibility:"hidden"}}>Fashion</Whitebox>
-                                                <SaveBtn style={{visibility:"visible",borderRadius:"10px"}} disabled="true">Saved</SaveBtn> 
+                                                <SaveBtn style={{visibility:"visible",borderRadius:"10px"}} disabled={true}>Saved</SaveBtn> 
                                             </>
                                          ) 
                                     }
@@ -114,13 +125,13 @@ class Home extends Component {
                                     </SpanContainer>
                                 </OnHoverContents>
                             </OnHover>
-                            <Image src={pin.img_url}/>
+                            <Image onClick={()=>this.handlePinClick(pin.id)} src={pin.img_url}/>
                         </ImageCard>
                     ))
                 }
             </div>
         ) : (
-            <img src="https://i.ibb.co/wSYQkRK/screencapture-in-pinterest-2020-11-25-10-18-56.png" alt="image"  width="100%"/>
+            <img src="https://i.ibb.co/wSYQkRK/screencapture-in-pinterest-2020-11-25-10-18-56.png" alt="image" height="max-height" width="100%"/>
         )
     }
 }

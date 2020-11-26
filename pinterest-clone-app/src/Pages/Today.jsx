@@ -4,24 +4,26 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const TodayWrap = styled.div`
-box-sizing: border-box;
+    box-sizing: border-box;
     width: 68%;
     margin: auto;
     display: flex;
     flex-flow: row wrap;
 `;
 const TodayItem = styled.div`
-width: 45%;
-height: 300px;
-margin: 10px;
-text-aligne: center;
-font-size: 22px;
-color : white;
-border-radius: 25px;
-& h1{
-    color: white
-}
-`
+    width: 45%;
+    height: 300px;
+    margin: 10px;
+    text-aligne: center;
+    font-size: 22px;
+    color : white;
+    border-radius: 25px;
+    & h2{
+        padding : 15px;
+        color: white;
+        font-weight : 600;
+    }
+`;
 
 
 class Today extends React.Component{
@@ -31,29 +33,32 @@ class Today extends React.Component{
             today : []
         }
     }
-    componentDidCatch(){
+    componentDidMount(){
         const { today } = this.context
         this.setState({
-            today : [...today]
+            today : today
         })
     }
     render(){
-        const { today } = this.context
+        const { today } = this.state
         
         return(
-            <div style ={{textAlign:"center"}}><h1>Today {new Date().toLocaleDateString('en-GB')}</h1>
+            <div style ={{textAlign:"center",marginTop:"30px"}}>
+                <h2 style={{fontWeight:"bold"}}>November 26, 2020</h2>
+                <p style={{fontSize:"45px",fontWeight:"bold",marginTop:"-20px"}}>Stay Inspired</p>
                 <TodayWrap >
                 
                     {
                     today.map((item)=>(
                         
                         <TodayItem key ={item.id} style = {{backgroundImage:`url(${item.today_img})`,backgroundSize :"cover"}} >
-                           <Link to = {`/today/${item.id}`}>{ <h1 style = {{position :"relative"}}>{item.today_title}</h1>}</Link>
+                           <Link to = {`/today/${item.id}`}>{ <h2 style = {{position :"relative"}}>{item.today_title}</h2>}</Link>
                         </TodayItem>
                     ))
                 }
                 </TodayWrap>
-                
+                <div style={{marginTop:"40px"}}>That's all for today!</div>
+                <h3 style={{fontWeight:"bolder",fontSize:"20px",marginBottom:"40px"}}>Come back tomorrow for <br/> more inspiration</h3>
             </div>
         )
     }

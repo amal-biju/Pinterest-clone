@@ -33,17 +33,23 @@ class AddPin extends Component {
 
     render() {
         const { title, description, link } = this.state
-        const { curruser } = this.context
+        const { curruser } = this.context;
+        console.log(curruser);
         return (
-            <div style={{width:"100%",height:"100%"}}>
-                <div style={{ display: "flex", width: "800px", margin: "auto", marginTop: "30px", justifyContent: "space-evenly", alignItems: "center", height: "600px", border: "1px solid black", borderRadius:"10px" }}>
-                    <div><AddImage></AddImage></div>
+            <div style={{width:"100%",height:"100%",backgroundColor:"#ddd"}}>
+                <div style={{ display: "flex", width: "800px", margin: "auto",justifyContent: "space-evenly", alignItems: "center", height: "600px", border: "1px solid black", borderRadius:"10px",backgroundColor:"#fff" }}>
+                    <div><AddImage/></div>
                     <div style={{ width: "350px", height: "480px" }}>
-                        <div className={styles.select}><select >{
-                            curruser.saved?.map(pin => (
-                                <option value={pin.title}>{pin.title}</option>
-                            ))
-                        }</select>
+                        <div className={styles.select}>
+                            <select >
+                            {
+                                curruser.saved?.map(pin => (
+                                    <option value={pin.title}>{pin.title}</option>
+                                ))
+                            }
+                                <option value="dc">DC</option>
+                                <option value="marvel">Marvel</option>
+                            </select>
                             <button onClick={this.handleSubmit}>Save</button></div>
 
                         <input
@@ -57,7 +63,7 @@ class AddPin extends Component {
                         <div className={styles.dp}><img src={curruser.dp} alt="" srcset="" />
                             <a> {curruser.name}</a></div>
                         <input
-                            style={{ borderWidth: "0 0 2px", marginTop: "30px" }}
+                            style={{ borderWidth: "0 0 2px", marginTop: "30px", maxWidth:"320px" }}
                             size="40"
                             type="text"
                             value={description}
@@ -66,7 +72,7 @@ class AddPin extends Component {
                             onChange={this.handleChange} />
                         <br />
                         <input
-                            style={{ borderWidth: "0 0 2px", marginTop: "215px" }}
+                            style={{ borderWidth: "0 0 2px", marginTop: "215px",maxWidth:"320px" }}
                             size="40"
                             type="link"
                             value={link}
