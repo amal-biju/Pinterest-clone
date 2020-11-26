@@ -90,6 +90,7 @@ const ProfileLink = styled.div`
 const Cross = styled.div`
     background-color : white;
     width:50px;
+    z-index : 1;
     height:50px;
     text-align: center;
     border-radius : 50%;
@@ -102,6 +103,7 @@ const Cross = styled.div`
 `;
 const Question = styled.div`
     background-color : white;
+    z-index : 1;
     padding : 0px 17px;
     border-radius : 50%;
     width : max-content;
@@ -148,7 +150,8 @@ class Navbar extends Component {
             position: "fixed",
             bottom: "90px",
             right: "30px",
-            boxShadow: "0px 1px 3px grey"
+            boxShadow: "0px 1px 3px grey",
+            zIndex : "1"
         }
         const myactivestyle={
             backgroundColor: "red",
@@ -188,7 +191,7 @@ class Navbar extends Component {
                             // <ProfileLink onClick={this.handleClick}>A</ProfileLink>
                             <Link to="/dashboard" style={{
                                 margin: 10,
-                                padding: 10
+                                padding: 10,
                             }}>CD</Link>
                         ) : (
                                 <>
@@ -198,10 +201,10 @@ class Navbar extends Component {
                             )
                     }
                 </NavbarWrapper>
-                <Link
+                <NavLink
                     style={mystyle}
                     activeStyle={myactivestyle}
-                    to="./pinbuilder">+</Link>
+                    to="./pinbuilder">+</NavLink>
                 <Question>?</Question>
             </>
         )

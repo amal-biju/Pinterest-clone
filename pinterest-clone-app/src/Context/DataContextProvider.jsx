@@ -38,8 +38,6 @@ class DataContextProvider extends Component {
                     },
                     {
                         "title":"Camping"
-                    },{
-                        "title":"Fashion"
                     }
                 ],
                 "age": "28",
@@ -96,6 +94,7 @@ class DataContextProvider extends Component {
         this.getTodayById = this.getTodayById.bind(this)
         this.getRandom = this.getRandom.bind(this)
         this.addpin = this.addpin.bind(this)
+        this.getPinById = this.getPinById.bind(this)
     }
 
     getRandom(){
@@ -275,14 +274,18 @@ class DataContextProvider extends Component {
         })
 
         return true
+    }
+    getPinById(id){
+        const{ pins }=this.state
 
-
-
+        const item=pins.find( data => data.id == id )
+        
+        return item
     }
 
     render() {
         const { pins, isAuth, users,isSaved,savedIds,error,curruser,today,random,savedPins } = this.state
-        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById,getRandom,addpin} = this
+        const { getPins, handleLogin ,getUsers,addSavedPins,handleLogout,handleSignup,getTodayById,getRandom,addpin,getPinById} = this
         const value = { 
             pins, 
             getPins, 
@@ -303,7 +306,8 @@ class DataContextProvider extends Component {
             random,
             getRandom,
             savedPins,
-            addpin
+            addpin,
+            getPinById
         }
         return (
             <DataContext.Provider value={value}>

@@ -27,7 +27,7 @@ const OnHover = styled.div`
     visibility : hidden;
 `;
 const OnHoverContents = styled.div`
-    position : absolute;
+    position : relative;
 `;
 const Whitebox = styled.div`
     position : relative;
@@ -57,7 +57,7 @@ const SaveBtn = styled.button`
 
 const SpanContainer = styled.div`
     position : relative;
-    top : 200px;
+    top : 230px;
     left : 140px;
 `;
 
@@ -84,7 +84,11 @@ class Home extends Component {
         getPins();
         getUsers();
     }
-    
+    handlePinClick=(id)=>{
+        const {history}=this.props
+        console.log(history,id)
+        history.replace(`/${id}`)
+    }
     
     render() {
         const { pins } = this.context
@@ -118,7 +122,7 @@ class Home extends Component {
                                     </SpanContainer>
                                 </OnHoverContents>
                             </OnHover>
-                            <Image src={pin.img_url}/>
+                            <Image onClick={()=>this.handlePinClick(pin.id)} src={pin.img_url}/>
                         </ImageCard>
                     ))
                 }

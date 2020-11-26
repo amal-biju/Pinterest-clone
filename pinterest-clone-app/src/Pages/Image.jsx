@@ -125,7 +125,7 @@ function AddImage(props) {
 
     if (files.length == 0) {
         return (
-            <div className="container" style={{width:"350px", height:"450px",border:"1px solid red",padding:"10px",borderRadius:"10px"}}>
+            <div className="container" style={{width:"350px", height:"450px",border:"3px dashed #aaa",padding:"10px",borderRadius:"10px"}}>
                 <div {...getRootProps({ style })} >
                     <input {...getInputProps()} />
                     <p>Drag 'n' drop some files here</p>
@@ -139,7 +139,7 @@ function AddImage(props) {
     }
     else {
         return (
-            <div className="container" style={{width:"350px", height:"450px",border:"1px solid red",padding:"10px",borderRadius:"10px"}}>
+            <div className="container" style={{width:"350px", height:"450px",border:"1px solid #ddd",padding:"10px",borderRadius:"10px"}}>
                 <aside style={thumbsContainer}>{thumbs}</aside>
             </div>
         );

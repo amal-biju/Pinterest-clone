@@ -18,6 +18,7 @@ const ImageCard = styled.div`
 
 const Image = styled.img`
     width: 100%;
+    height : 300px;
     background-size : cover;
     border-radius  :20px;
 `;
