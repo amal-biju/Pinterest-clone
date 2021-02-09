@@ -20,20 +20,20 @@
 
 ## <code>Login Page</code>
 
-![gif](.pinterest-clone-app/screenshots/login.png)
+![gif](./pinterest-clone-app/screenshots/login.png)
 
 ## <code>Home Page</code>
 
-![gif](.pinterest-clone-app/screenshots/home.png)
+![gif](./pinterest-clone-app/screenshots/home.png)
 
 ## <code>Add photo page</code>
 
-![gif](.pinterest-clone-app/screenshots/addphoto.png)
+![gif](./pinterest-clone-app/screenshots/addphoto.png)
 
 ## <code>Photo details page</code>
 
-![gif](.pinterest-clone-app/screenshots/details.png)
+![gif](./pinterest-clone-app/screenshots/details.png)
 
 ## Sneak peek
 
-![gif](.pinterest-clone-app/screenshots/pinterest.gif)
+![gif](./pinterest-clone-app/screenshots/pinterest.gif)
