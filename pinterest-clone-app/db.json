@@ -96,6 +96,12 @@
       "password": "admin",
       "age": "25",
       "id": "SgAkaPL"
+    },
+    {
+      "email": "amalbiju999@gmail.com",
+      "password": "secret",
+      "age": "25",
+      "id": "j5no31l"
     }
   ],
   "pins": [
@@ -424,6 +430,14 @@
       "img_url": "https://i.pinimg.com/236x/af/87/4b/af874b2e6d290a81d2d0b28b2ad22941.jpg",
       "url": "https://picsum.photos/400/600",
       "id": "x9iiusk"
+    },
+    {
+      "title": "Animal",
+      "description": "Giraffe",
+      "author": "Charleson Davis",
+      "img_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/headshot-of-giraffe-sabi-sands-game-reserve-royalty-free-image-1573571198.jpg",
+      "url": "https://picsum.photos/400/600",
+      "id": "Z7Xhjsz"
     }
   ],
   "today": [
