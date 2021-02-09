@@ -56,3 +56,8 @@ Pinterest is an American image sharing and social media service designed to enab
 <h3>Charleson David</h3>👨‍- <a href="https://github.com/normandy17" >Charleson</a>
 <h3>Amal Biju</h3>👨‍ -  <a href="https://github.com/amal-biju">Amal</a> 
 <h3>Krishna Sai</h3> 👨‍ - <a href="https://github.com/Krishnasai45">Sriniwas</a>
+
+### Acknowledgments
+<div>
+  We take all the responsiblity for every single line of code. The design inspired from pinterest.com
+</div>
