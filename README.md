@@ -48,10 +48,11 @@ Pinterest is an American image sharing and social media service designed to enab
 
 ![gif](./pinterest-clone-app/screenshots/addphoto.png)
 
-## Photo details page
-
-![gif](./pinterest-clone-app/screenshots/details.png)
-
 ## Sneak peek
 
 ![gif](./pinterest-clone-app/screenshots/pinterest.gif)
+
+## Contributors
+<h3>Charleson David</h3>👨‍- <a href="https://github.com/normandy17" >Charleson</a>
+<h3>Amal Biju</h3>👨‍ -  <a href="https://github.com/amal-biju">Amal</a> 
+<h3>Krishna Sai</h3> 👨‍ - <a href="https://github.com/Krishnasai45">Sriniwas</a>
