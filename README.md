@@ -4,6 +4,10 @@
 
 ```npm install```
 
+```json-server --watch db.json --port 3004```
+
+```npm start```
+
 ## Libraries installed
 - Ant Design
 - React Dropzone
